@@ -50,7 +50,7 @@ namespace Kung_Fu_Tracker
             {
                 if (patternDatabase == null)
                 {
-                    patternDatabase = new PatternEntryDatabaseController();
+                    patternDatabase = new PatternDatabaseController();
                 }
                 return patternDatabase;
             }

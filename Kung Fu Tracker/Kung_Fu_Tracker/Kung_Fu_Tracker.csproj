@@ -42,7 +42,6 @@
     <Compile Include="DataManagement\PatternDatabaseController.cs" />
     <Compile Include="DataManagement\PatternEntryDatabaseController.cs" />
     <Compile Include="DataManagement\Pattern.cs" />
-    <Compile Include="DataManagement\PatternDatabase.cs" />
     <Compile Include="DataManagement\PatternEntry.cs" />
     <Compile Include="Interfaces\ISQLite.cs" />
     <Compile Include="Interfaces\IUIElements.cs" />
