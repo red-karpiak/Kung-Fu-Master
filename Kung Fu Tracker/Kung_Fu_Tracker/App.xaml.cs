@@ -11,6 +11,7 @@ namespace Kung_Fu_Tracker
     public partial class App : Application
     {
         static PatternEntryDatabaseController patternEntryDatabase;
+        static PatternDatabaseController patternDatabase;
         public App()
         {
             InitializeComponent();
@@ -41,6 +42,17 @@ namespace Kung_Fu_Tracker
                     patternEntryDatabase = new PatternEntryDatabaseController();
                 }
                 return patternEntryDatabase;
+            }
+        }
+        public static PatternDatabaseController PatternDatabase
+        {
+            get
+            {
+                if (patternDatabase == null)
+                {
+                    patternDatabase = new PatternEntryDatabaseController();
+                }
+                return patternDatabase;
             }
         }
     }

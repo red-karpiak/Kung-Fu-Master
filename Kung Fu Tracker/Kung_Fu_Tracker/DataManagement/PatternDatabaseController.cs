@@ -1,58 +1,57 @@
-﻿using System;
+﻿using Kung_Fu_Tracker.Interfaces;
+using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SQLite;
 using Xamarin.Forms;
-using Kung_Fu_Tracker.Interfaces;
 
 namespace Kung_Fu_Tracker.DataManagement
 {
-    //database controller for the pattern steps
-    public class PatternEntryDatabaseController
+    public class PatternDatabaseController
     {
         static object locker = new object();
         SQLiteConnection database;
-        public PatternEntryDatabaseController()
+        public PatternDatabaseController()
         {
             database = DependencyService.Get<ISQLite>().GetConnection();
             database.CreateTable<PatternEntry>();
         }
-        public PatternEntry GetPatternEntry()
+        public Pattern GetPatternEntry()
         {
             lock (locker)
             {
-                if (database.Table<PatternEntry>().Count() == 0)
+                if (database.Table<Pattern>().Count() == 0)
                 {
                     return null;
                 }
                 else
                 {
-                    return database.Table<PatternEntry>().First();
+                    return database.Table<Pattern>().First();
                 }
             }
         }
-        public int SavePatternEntry(PatternEntry patternEntry)
+        public int SavePattern(Pattern pattern)
         {
             lock (locker)
             {
-                if (patternEntry.ID != 0)
+                if (pattern.ID != 0)
                 {
-                    database.Update(patternEntry);
-                    return patternEntry.ID;
+                    database.Update(pattern);
+                    return pattern.ID;
                 }
                 else
                 {
-                    return database.Insert(patternEntry);
+                    return database.Insert(pattern);
                 }
             }
         }
-        public int DeletePatternEntry(int id)
+        public int DeletePattern(string rank)
         {
             lock (locker)
             {
-                return database.Delete<PatternEntry>(id);
+                return database.Delete<Pattern>(rank);
             }
         }
     }

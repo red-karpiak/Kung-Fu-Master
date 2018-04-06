@@ -39,6 +39,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\HelperFunctions.cs" />
+    <Compile Include="DataManagement\PatternDatabaseController.cs" />
     <Compile Include="DataManagement\PatternEntryDatabaseController.cs" />
     <Compile Include="DataManagement\Pattern.cs" />
     <Compile Include="DataManagement\PatternDatabase.cs" />
