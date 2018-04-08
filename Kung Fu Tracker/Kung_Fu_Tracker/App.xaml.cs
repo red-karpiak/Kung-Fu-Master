@@ -1,4 +1,5 @@
 ﻿using Kung_Fu_Tracker.DataManagement;
+using Kung_Fu_Tracker.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,6 @@ namespace Kung_Fu_Tracker
 {
     public partial class App : Application
     {
-        static PatternEntryDatabaseController patternEntryDatabase;
         static PatternDatabaseController patternDatabase;
         public App()
         {
@@ -33,24 +33,13 @@ namespace Kung_Fu_Tracker
         {
             // Handle when your app resumes
         }
-        public static PatternEntryDatabaseController PatternEntryDatabase
-        {
-            get
-            {
-                if (patternEntryDatabase == null)
-                {
-                    patternEntryDatabase = new PatternEntryDatabaseController();
-                }
-                return patternEntryDatabase;
-            }
-        }
         public static PatternDatabaseController PatternDatabase
         {
             get
             {
                 if (patternDatabase == null)
                 {
-                    patternDatabase = new PatternDatabaseController();
+                    patternDatabase = new PatternDatabaseController(DependencyService.Get<ISQLite>().GetLocalFilePath("PatternSQLite.db3"));
                 }
                 return patternDatabase;
             }

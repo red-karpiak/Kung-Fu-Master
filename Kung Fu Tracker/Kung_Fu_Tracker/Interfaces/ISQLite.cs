@@ -9,8 +9,6 @@ namespace Kung_Fu_Tracker.Interfaces
 {
     public interface ISQLite
     {
-        //returns the platform specific connection
- 
-        SQLiteConnection GetConnection();
+        string GetLocalFilePath(string filename);
     }
 }

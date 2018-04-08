@@ -40,9 +40,7 @@
     </Compile>
     <Compile Include="Classes\HelperFunctions.cs" />
     <Compile Include="DataManagement\PatternDatabaseController.cs" />
-    <Compile Include="DataManagement\PatternEntryDatabaseController.cs" />
     <Compile Include="DataManagement\Pattern.cs" />
-    <Compile Include="DataManagement\PatternEntry.cs" />
     <Compile Include="Interfaces\ISQLite.cs" />
     <Compile Include="Interfaces\IUIElements.cs" />
     <Compile Include="MainPage.xaml.cs">
