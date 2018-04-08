@@ -22,5 +22,27 @@ namespace Kung_Fu_Tracker.DataManagement
         {
             return database.QueryAsync<Pattern>("SELECT * FROM [Pattern] WHERE [Rank] = rank [ORDER BY Order]");
         }
+
+        public Task<Pattern> GetPatternEntryAsync(int id)
+        {
+            return database.Table<Pattern>().Where(i => i.ID == id).FirstOrDefaultAsync();
+        }
+
+        public Task<int> SavePatternEntryAsync(Pattern pattern)
+        {
+            if (pattern.ID != 0)
+            {
+                return database.UpdateAsync(pattern);
+            }
+            else
+            {
+                return database.InsertAsync(pattern);
+            }
+        }
+        public Task<int> DeleteItemAsync(Pattern pattern)
+        {
+            return database.DeleteAsync(pattern);
+        }
+
     }
 }
