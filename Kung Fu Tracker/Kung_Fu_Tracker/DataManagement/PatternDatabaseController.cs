@@ -11,7 +11,10 @@ namespace Kung_Fu_Tracker.DataManagement
 {
     public class PatternDatabaseController
     {
-        
+        //The advantage of using the asynchronous SQLite.Net API is that database 
+        //operations are moved to background threads. In addition, 
+        //there's no need to write additional concurrency handling code because the API takes care of it.
+
         SQLiteAsyncConnection database;
         public PatternDatabaseController(string dbPath)
         {
