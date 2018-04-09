@@ -47,7 +47,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\HomePage.cs" />
-    <Compile Include="Pages\ListPage.cs" />
+    <Compile Include="Pages\PatternPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

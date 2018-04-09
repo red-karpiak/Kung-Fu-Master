@@ -9,17 +9,20 @@ namespace Kung_Fu_Tracker.DataManagement
 {
     public class Pattern
     {
-        [PrimaryKey]
-        public string Rank { get; set; }
+        [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
+        public string Rank { get; set; }
         public int Order { get; set; }
         public string Feet { get; set; }
         public string Hands { get; set; }
-        
-        
-        public Pattern()
-        {
 
+        public Pattern() { }
+        public Pattern(string rank, int order, string feet, string hands)
+        {
+            Rank = rank;
+            Order = order;
+            Feet = feet;
+            Hands = hands;
         }
     }
 }

@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace Kung_Fu_Tracker.Pages
 {
-    public class ListPage : ContentPage
+    public class PatternPage : ContentPage
     {
         public Entry footPattern = new Entry();
         public Entry handPattern = new Entry();
@@ -18,10 +18,10 @@ namespace Kung_Fu_Tracker.Pages
         public int StepID;
         public Pattern PatternEntry;
         public Button submit = new Button();
-        public ListPage(string pageName)
+        public PatternPage(string pageName)
         {
             Title = pageName;
-            submit.Text = "Toast!";
+            //submit.Text = "Toast!";
             submit.Clicked += Submit_Clicked;
             //get page type by name
             Content = new StackLayout
@@ -51,14 +51,27 @@ namespace Kung_Fu_Tracker.Pages
             {
                 System.Diagnostics.Debug.WriteLine(ex.Message);
             }
-            
+
+            Pattern pattern = new Pattern(rank.Text, StepID, footPattern.Text, handPattern.Text);
+            CheckOrder(pattern);
+            InsertPattern(pattern);
+
+            /*
             List<string> messages = new List<string> { stepID.Text, footPattern.Text, handPattern.Text, rank.Text };
 
             DependencyService.Get<IUIElements>().toast(messages);
             footPattern.Text = "";
             handPattern.Text = "";
             rank.Text = "";
-            stepID.Text = "";
+            stepID.Text = "";*/
+        }
+        private void InsertPattern(Pattern pattern)
+        {
+
+        }
+        private void CheckOrder(Pattern pattern)
+        {
+
         }
     }
 }

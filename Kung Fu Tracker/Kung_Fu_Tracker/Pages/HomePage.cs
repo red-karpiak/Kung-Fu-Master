@@ -51,7 +51,7 @@ namespace Kung_Fu_Tracker.Pages
         }
         private void NewListPage(string name)
         {
-            Navigation.PushAsync(new ListPage(name));
+            Navigation.PushAsync(new PatternPage(name));
         }
     }
 }
