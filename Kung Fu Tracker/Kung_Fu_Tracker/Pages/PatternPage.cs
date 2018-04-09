@@ -54,7 +54,7 @@ namespace Kung_Fu_Tracker.Pages
 
             Pattern pattern = new Pattern(rank.Text, StepID, footPattern.Text, handPattern.Text);
             CheckOrder(pattern);
-            InsertPattern(pattern);
+            SavePattern(pattern);
 
             /*
             List<string> messages = new List<string> { stepID.Text, footPattern.Text, handPattern.Text, rank.Text };
@@ -65,9 +65,9 @@ namespace Kung_Fu_Tracker.Pages
             rank.Text = "";
             stepID.Text = "";*/
         }
-        private void InsertPattern(Pattern pattern)
+        async private void SavePattern(Pattern pattern)
         {
-
+            await App.PatternDatabase.SavePatternEntryAsync(pattern);
         }
         private void CheckOrder(Pattern pattern)
         {
