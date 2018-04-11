@@ -11,12 +11,12 @@ namespace Kung_Fu_Tracker
 {
     public partial class App : Application
     {
-        static PatternDatabaseController patternDatabase;
+        static PatternDBCont patternDatabase;
         public App()
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage (new Kung_Fu_Tracker.Pages.HomePage());
+            MainPage = new Views.LoginPage();
         }
 
         protected override void OnStart()
@@ -33,13 +33,13 @@ namespace Kung_Fu_Tracker
         {
             // Handle when your app resumes
         }
-        public static PatternDatabaseController PatternDatabase
+        public static PatternDBCont PatternDatabase
         {
             get
             {
                 if (patternDatabase == null)
                 {
-                    patternDatabase = new PatternDatabaseController(DependencyService.Get<ISQLite>().GetLocalFilePath("PatternSQLite.db3"));
+                    patternDatabase = new PatternDBCont(DependencyService.Get<ISQLite>().GetLocalFilePath("PatternSQLite.db3"));
                 }
                 return patternDatabase;
             }

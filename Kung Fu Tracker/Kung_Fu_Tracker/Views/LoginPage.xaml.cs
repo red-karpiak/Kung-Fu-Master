@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Kung_Fu_Tracker.Models;
 
 namespace Kung_Fu_Tracker.Views
 {
@@ -17,9 +18,17 @@ namespace Kung_Fu_Tracker.Views
             InitializeComponent();
         }
 
-        private void butSignIn_Clicked(object sender, EventArgs e)
+        void butSignIn_Clicked(object sender, EventArgs e)
         {
-
+            User user = new User(entUsername.Text, entPassword.Text);
+            if (user.CheckInformation())
+            {
+                DisplayAlert("Login", "Login Successful", "OK");
+            }
+            else
+            {
+                DisplayAlert("Login", "Login Failed", "OK");
+            }
         }
     }
 }
