@@ -41,6 +41,8 @@
     <Compile Include="Classes\HelperFunctions.cs" />
     <Compile Include="DataManagement\PatternDBCont.cs" />
     <Compile Include="DataManagement\Pattern.cs" />
+    <Compile Include="DataManagement\TokenDBController.cs" />
+    <Compile Include="DataManagement\UserDBController.cs" />
     <Compile Include="Interfaces\ISQLite.cs" />
     <Compile Include="Interfaces\IUIElements.cs" />
     <Compile Include="MainPage.xaml.cs">

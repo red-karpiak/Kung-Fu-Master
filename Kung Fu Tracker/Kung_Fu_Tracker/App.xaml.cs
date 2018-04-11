@@ -12,6 +12,8 @@ namespace Kung_Fu_Tracker
     public partial class App : Application
     {
         static PatternDBCont patternDatabase;
+        static UserDBController userDatabase;
+        static TokenDBController tokenDatabase;
         public App()
         {
             InitializeComponent();
@@ -33,15 +35,26 @@ namespace Kung_Fu_Tracker
         {
             // Handle when your app resumes
         }
-        public static PatternDBCont PatternDatabase
+        public static TokenDBController TokenDatabase
         {
             get
             {
-                if (patternDatabase == null)
+                if (tokenDatabase == null)
                 {
-                    patternDatabase = new PatternDBCont(DependencyService.Get<ISQLite>().GetLocalFilePath("PatternSQLite.db3"));
+                    tokenDatabase = new TokenDBController();
                 }
-                return patternDatabase;
+                return tokenDatabase;
+            }
+        }
+        public static UserDBController UserDatabase
+        {
+            get
+            {
+                if (userDatabase == null)
+                {
+                    userDatabase = new UserDBController();
+                }
+                return userDatabase;
             }
         }
     }
