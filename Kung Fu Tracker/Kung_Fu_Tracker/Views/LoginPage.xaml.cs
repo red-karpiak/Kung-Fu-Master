@@ -40,6 +40,7 @@ namespace Kung_Fu_Tracker.Views
             if (user.CheckInformation())
             {
                 DisplayAlert("Login", "Login Successful", "OK");
+                App.UserDatabase.SaveUser(user);
             }
             else
             {
