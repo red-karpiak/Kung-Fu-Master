@@ -15,9 +15,24 @@ namespace Kung_Fu_Tracker.Views
     {
         public LoginPage()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            Init();
         }
+        void Init()
+        {
+            BackgroundColor = Constants.BackgroundColor;
+            lblUsername.TextColor = Constants.MainTextColor;
+            lblPassword.TextColor = Constants.MainTextColor;
+            entUsername.BackgroundColor = Constants.EntryColor;
+            entPassword.BackgroundColor = Constants.EntryColor;
+            activitySpinner.IsVisible = false;
 
+            entUsername.Completed += (s, e) => entPassword.Focus();
+            entPassword.Completed += (s, e) => butSignIn_Clicked(s, e);
+            //Entry tn = new Entry();
+           // tn.Col
+
+        }
         void butSignIn_Clicked(object sender, EventArgs e)
         {
             User user = new User(entUsername.Text, entPassword.Text);
