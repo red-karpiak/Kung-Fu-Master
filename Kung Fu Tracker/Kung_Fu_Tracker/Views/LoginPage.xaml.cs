@@ -25,6 +25,7 @@ namespace Kung_Fu_Tracker.Views
             lblPassword.TextColor = Constants.MainTextColor;
             entUsername.BackgroundColor = Constants.EntryColor;
             entPassword.BackgroundColor = Constants.EntryColor;
+            LoginIcon.HeightRequest = Constants.LoginIconHeight;
             activitySpinner.IsVisible = false;
 
             entUsername.Completed += (s, e) => entPassword.Focus();
