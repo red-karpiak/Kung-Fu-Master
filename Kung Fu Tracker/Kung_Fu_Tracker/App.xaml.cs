@@ -11,7 +11,7 @@ namespace Kung_Fu_Tracker
 {
     public partial class App : Application
     {
-        static PatternDBCont patternDatabase;
+        static PatternDBController patternDatabase;
         static UserDBController userDatabase;
         static TokenDBController tokenDatabase;
         public App()
@@ -55,6 +55,17 @@ namespace Kung_Fu_Tracker
                     userDatabase = new UserDBController();
                 }
                 return userDatabase;
+            }
+        }
+        public static PatternDBController PatternDatabase
+        {
+            get
+            {
+                if (patternDatabase == null)
+                {
+                    patternDatabase = new PatternDBController();
+                }
+                return patternDatabase;
             }
         }
     }

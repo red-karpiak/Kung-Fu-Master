@@ -39,7 +39,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\HelperFunctions.cs" />
-    <Compile Include="DataManagement\PatternDBCont.cs" />
+    <Compile Include="DataManagement\PatternDBController.cs" />
     <Compile Include="DataManagement\Pattern.cs" />
     <Compile Include="DataManagement\TokenDBController.cs" />
     <Compile Include="DataManagement\UserDBController.cs" />
@@ -51,9 +51,6 @@
     <Compile Include="Models\Constants.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Pages\HomePage.cs" />
-    <Compile Include="Pages\PatternListPage.cs" />
-    <Compile Include="Pages\PatternPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>

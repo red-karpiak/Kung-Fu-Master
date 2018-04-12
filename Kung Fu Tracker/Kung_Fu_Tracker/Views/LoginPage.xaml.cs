@@ -20,12 +20,16 @@ namespace Kung_Fu_Tracker.Views
         }
         void Init()
         {
+            lblBanner.Text = "少林功夫";
+            lblBanner.TextColor = Constants.MainTextColor;
+            //lblBanner.HeightRequest = Constants.LoginBannerHeight;
+            lblBanner.FontSize = 80;
             BackgroundColor = Constants.BackgroundColor;
             lblUsername.TextColor = Constants.MainTextColor;
             lblPassword.TextColor = Constants.MainTextColor;
             entUsername.BackgroundColor = Constants.EntryColor;
             entPassword.BackgroundColor = Constants.EntryColor;
-            LoginIcon.HeightRequest = Constants.LoginIconHeight;
+            
             activitySpinner.IsVisible = false;
 
             entUsername.Completed += (s, e) => entPassword.Focus();

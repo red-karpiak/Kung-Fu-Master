@@ -22,10 +22,10 @@ namespace Kung_Fu_Tracker.Models
         }
         public bool CheckInformation()
         {
-            if (!this.Username.Equals("") && !this.Password.Equals(""))
-                return true;
-            else
+            if (string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
                 return false;
+            else
+                return true;
         }
     }
 }
