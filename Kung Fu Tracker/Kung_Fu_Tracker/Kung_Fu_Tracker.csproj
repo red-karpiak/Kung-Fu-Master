@@ -41,6 +41,7 @@
     <Compile Include="Classes\HelperFunctions.cs" />
     <Compile Include="DataManagement\PatternDBController.cs" />
     <Compile Include="DataManagement\Pattern.cs" />
+    <Compile Include="DataManagement\RestService.cs" />
     <Compile Include="DataManagement\TokenDBController.cs" />
     <Compile Include="DataManagement\UserDBController.cs" />
     <Compile Include="Interfaces\ISQLite.cs" />
@@ -81,6 +82,9 @@
     </Reference>
     <Reference Include="SQLitePCLRaw.core, Version=1.1.10.86, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SQLitePCLRaw.core.1.1.10\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>bin\Debug\System.Net.Http.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.5.1.444934\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Core.dll</HintPath>
