@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Kung_Fu_Tracker
@@ -20,6 +21,7 @@ namespace Kung_Fu_Tracker
         private static bool hasInternet;
         private static Page currentPage;
         private static Timer timer;
+        private static bool noInterShow;
 
         public App()
         {
@@ -105,6 +107,43 @@ namespace Kung_Fu_Tracker
         {
             var networkConnection = DependencyService.Get<INetworkConnection>();
             networkConnection.CheckNetworkConnection();
+            if (!networkConnection.IsConnected)
+            {
+                Device.BeginInvokeOnMainThread(async() =>
+                {
+                    if (hasInternet)
+                    {
+                        if (!noInterShow)
+                        {
+                            hasInternet = false;
+                            labelScreen.IsVisible = true;
+                            await ShowDisplayAlert();
+                        }
+                    }
+                });
+            }
+            else
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    hasInternet = true;
+                    labelScreen.IsVisible = false;
+                });
+            }
+        }
+
+        public static async Task<bool> CheckConnection()
+        {
+            var networkConnection = DependencyService.Get<INetworkConnection>();
+            networkConnection.CheckNetworkConnection();
+            return networkConnection.IsConnected;
+        }
+
+        private static async Task ShowDisplayAlert()
+        {
+            noInterShow = false;
+            await currentPage.DisplayAlert("Internet", "Device has no Internet. Please reconnect.", "OK");
+            noInterShow = false;
         }
     }
 }
