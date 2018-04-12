@@ -9,7 +9,7 @@ namespace Kung_Fu_Tracker.Models
 {
     public class User
     {
-        [PrimaryKey,AutoIncrement]
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }

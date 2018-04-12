@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using Kung_Fu_Tracker.Models;
 using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace Kung_Fu_Tracker.DataManagement
 {
@@ -25,9 +26,8 @@ namespace Kung_Fu_Tracker.DataManagement
             postData.Add(new KeyValuePair<string, string>("grant_type", grant_type));
             postData.Add(new KeyValuePair<string, string>("username", user.Username));
             postData.Add(new KeyValuePair<string, string>("password", user.Password));
-            var weburl = "localhost";
             var content = new FormUrlEncodedContent(postData);
-            var response = await PostResponseLogin<Token>(weburl, content);
+            var response = await PostResponseLogin<Token>(Constants.weburl, content);
             DateTime dt = new DateTime();
             dt = DateTime.Today;
             response.expireDate = dt.AddSeconds(response.expireIn);
@@ -45,19 +45,56 @@ namespace Kung_Fu_Tracker.DataManagement
             var token = App.TokenDatabase.GetToken();
             string contentType = "application/json";
             httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token.accessToken);
-            var result = await httpClient.PostAsync(weburl, new StringContent(jsonContent, Encoding.UTF8, contentType));
-            var jsonResult = result.Content.ReadAsStringAsync().Result;
-            var contentResp = JsonConvert.DeserializeObject<T>(jsonResult);
-            return contentResp;
+            try
+            {
+                var result = await httpClient.PostAsync(weburl, new StringContent(jsonContent, Encoding.UTF8, contentType));
+                if (result.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var jsonResult = result.Content.ReadAsStringAsync().Result;
+                    try
+                    {
+                        var contentResp = JsonConvert.DeserializeObject<T>(jsonResult);
+                        return contentResp;
+                    }
+                    catch
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch
+            {
+                return null;
+            }
+            return null;
         }
         public async Task<T> GetResponse<T>(string weburl) where T : class
         {
             var token = App.TokenDatabase.GetToken();
             httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token.accessToken);
-            var response = await httpClient.GetAsync(weburl);
-            var jsonResult = response.Content.ReadAsStringAsync().Result;
-            var contentResp = JsonConvert.DeserializeObject<T>(jsonResult);
-            return contentResp;
+            try
+            {
+                var response = await httpClient.GetAsync(weburl);
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var jsonResult = response.Content.ReadAsStringAsync().Result;
+                    Debug.WriteLine("JsonResult: " + jsonResult);
+                    try
+                    {
+                        var contentResp = JsonConvert.DeserializeObject<T>(jsonResult);
+                        return contentResp;
+                    }
+                    catch
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch
+            {
+                return null;
+            }
+            return null;
         }
     }
 }

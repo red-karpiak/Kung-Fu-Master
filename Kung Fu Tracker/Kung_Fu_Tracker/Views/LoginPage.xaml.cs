@@ -15,40 +15,41 @@ namespace Kung_Fu_Tracker.Views
     {
         public LoginPage()
         {
-            InitializeComponent(); 
+            InitializeComponent();
             Init();
         }
         void Init()
         {
             lblBanner.Text = "少林功夫";
             lblBanner.TextColor = Constants.MainTextColor;
-            //lblBanner.HeightRequest = Constants.LoginBannerHeight;
             lblBanner.FontSize = 80;
             BackgroundColor = Constants.BackgroundColor;
             lblUsername.TextColor = Constants.MainTextColor;
             lblPassword.TextColor = Constants.MainTextColor;
             entUsername.BackgroundColor = Constants.EntryColor;
             entPassword.BackgroundColor = Constants.EntryColor;
-            
+
             activitySpinner.IsVisible = false;
 
             entUsername.Completed += (s, e) => entPassword.Focus();
-            entPassword.Completed += (s, e) => butSignIn_Clicked(s, e);
-            //Entry tn = new Entry();
-           // tn.Col
+            entPassword.Completed += (s, e) => butSignIn_ClickedAsync(s, e);
 
         }
-        void butSignIn_Clicked(object sender, EventArgs e)
+        async Task butSignIn_ClickedAsync(object sender, EventArgs e)
         {
             User user = new User(entUsername.Text, entPassword.Text);
             if (user.CheckInformation())
             {
-                DisplayAlert("Login", "Login Successful", "OK");
-                App.UserDatabase.SaveUser(user);
+                await DisplayAlert("Login", "Login Successful", "OK");
+                var result = await App.RestService.Login(user);
+                if (result.accessToken != null)
+                {
+                    App.UserDatabase.SaveUser(user);
+                }
             }
             else
             {
-                DisplayAlert("Login", "Login Failed", "OK");
+                await DisplayAlert("Login", "Login Failed", "OK");
             }
         }
     }

@@ -21,7 +21,7 @@ namespace Kung_Fu_Tracker.DataManagement
         }
         public User GetUser(User user)
         {
-            lock(locker)
+            lock (locker)
             {
                 if (database.Table<User>().Count() == 0)
                 {
@@ -29,13 +29,13 @@ namespace Kung_Fu_Tracker.DataManagement
                 }
                 else
                 {
-                    return database.Table<User>().FirstOrDefault( u => u.Password == user.Password && u.Username == user.Username);
+                    return database.Table<User>().FirstOrDefault(u => u.Password == user.Password && u.Username == user.Username);
                 }
             }
         }
         public int SaveUser(User user)
         {
-            lock(locker)
+            lock (locker)
             {
                 if (user.Id != 0)
                 {

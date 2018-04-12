@@ -1,19 +1,26 @@
 ﻿using Kung_Fu_Tracker.DataManagement;
 using Kung_Fu_Tracker.Interfaces;
+using Kung_Fu_Tracker.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading;
 using Xamarin.Forms;
 
 namespace Kung_Fu_Tracker
 {
     public partial class App : Application
     {
+        static RestService restService;
         static PatternDBController patternDatabase;
         static UserDBController userDatabase;
         static TokenDBController tokenDatabase;
+        private static Label labelScreen;
+        private static bool hasInternet;
+        private static Page currentPage;
+        private static Timer timer;
+
         public App()
         {
             InitializeComponent();
@@ -34,6 +41,17 @@ namespace Kung_Fu_Tracker
         protected override void OnResume()
         {
             // Handle when your app resumes
+        }
+        public static RestService RestService
+        {
+            get
+            {
+                if (restService == null)
+                {
+                    restService = new RestService();
+                }
+                return restService;
+            }
         }
         public static TokenDBController TokenDatabase
         {
@@ -67,6 +85,26 @@ namespace Kung_Fu_Tracker
                 }
                 return patternDatabase;
             }
+        }
+        public static void StartCheckIfInternet(Label label, Page page)
+        {
+            labelScreen = label;
+            labelScreen.Text = Constants.noInternetText;
+            labelScreen.IsVisible = false;
+            hasInternet = true;
+            currentPage = page;
+            if (timer == null)
+            {
+                timer = new Timer((e) =>
+                {
+                    CheckIfInternetOvertime();
+                }, null, 10, (int)TimeSpan.FromSeconds(3).TotalMilliseconds);
+            }
+        }
+        private static void CheckIfInternetOvertime()
+        {
+            var networkConnection = DependencyService.Get<INetworkConnection>();
+            networkConnection.CheckNetworkConnection();
         }
     }
 }
