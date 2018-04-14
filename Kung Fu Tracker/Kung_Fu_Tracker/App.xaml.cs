@@ -109,6 +109,8 @@ namespace Kung_Fu_Tracker
             networkConnection.CheckNetworkConnection();
             if (!networkConnection.IsConnected)
             {
+                //because the timer is in a different thread, we have to call BeginInvokeOnMainThread, 
+                //otherwise the ui elements won't change
                 Device.BeginInvokeOnMainThread(async() =>
                 {
                     if (hasInternet)
@@ -137,6 +139,21 @@ namespace Kung_Fu_Tracker
             var networkConnection = DependencyService.Get<INetworkConnection>();
             networkConnection.CheckNetworkConnection();
             return networkConnection.IsConnected;
+        }
+
+        public static async Task<bool> CheckIfInternetAlert()
+        {
+            var networkConnection = DependencyService.Get<INetworkConnection>();
+            networkConnection.CheckNetworkConnection();
+            if (!networkConnection.IsConnected)
+            {
+                if (!noInterShow)
+                {
+                    await ShowDisplayAlert();
+                }
+                return false;
+            }
+            return true;
         }
 
         private static async Task ShowDisplayAlert()

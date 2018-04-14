@@ -28,11 +28,11 @@ namespace Kung_Fu_Tracker.Views
             lblPassword.TextColor = Constants.MainTextColor;
             entUsername.BackgroundColor = Constants.EntryColor;
             entPassword.BackgroundColor = Constants.EntryColor;
-
+            App.StartCheckIfInternet(lblNoInternet, this);
             activitySpinner.IsVisible = false;
 
             entUsername.Completed += (s, e) => entPassword.Focus();
-            entPassword.Completed += (s, e) => butSignIn_ClickedAsync(s, e);
+            entPassword.Completed += async (s, e) => await butSignIn_ClickedAsync(s, e);
 
         }
         async Task butSignIn_ClickedAsync(object sender, EventArgs e)

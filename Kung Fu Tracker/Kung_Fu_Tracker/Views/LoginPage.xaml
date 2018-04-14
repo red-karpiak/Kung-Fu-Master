@@ -5,6 +5,7 @@
              x:Class="Kung_Fu_Tracker.Views.LoginPage">
     <StackLayout x:Name="MasterLayout">
         <StackLayout x:Name="LogoStack" VerticalOptions="FillAndExpand">
+            <Label x:Name="lblNoInternet" HorizontalOptions="Center" BackgroundColor="Red" TextColor="White" />
             <Label x:Name="lblBanner" VerticalOptions="Center" HorizontalTextAlignment="Center" Margin="0,80,0,0"/>
         </StackLayout>
         <StackLayout x:Name="LoginEntriesStack" VerticalOptions="StartAndExpand">
@@ -19,7 +20,7 @@
             <Entry x:Name="entUsername" Placeholder="Username"/>
             <Label x:Name="lblPassword" Text="Password"/>
             <Entry x:Name="entPassword" Placeholder="Password" IsPassword="true"/>
-            <Button x:Name="butSignIn" Text="Sign In" Clicked="butSignIn_Clicked"/>
+            <Button x:Name="butSignIn" Text="Sign In" Clicked="butSignIn_ClickedAsync"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>
