@@ -6,7 +6,7 @@
              
              x:Class="Kung_Fu_Tracker.Views.Menu.MasterDetail">
     <MasterDetailPage.Master>
-        <local:MasterPage/>
+        <local:MasterPage x:Name="masterPage"/>
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
         <NavigationPage>

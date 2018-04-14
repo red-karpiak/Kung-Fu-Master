@@ -41,26 +41,29 @@ namespace Kung_Fu_Tracker.Views
             User user = new User(entUsername.Text, entPassword.Text);
             if (user.CheckInformation())
             {
+                activitySpinner.IsVisible = true;
                 await DisplayAlert("Login", "Login Successful", "OK");
                 //var result = await App.RestService.Login(user);
                 var result = new Token(); //dummy token for testing purposes
                // if (result.accessToken != null)
                 if (result != null)
                 {
+                    activitySpinner.IsVisible = false;
                     //App.UserDatabase.SaveUser(user);
                     //App.TokenDatabase.SaveToken(result);
                     if (Device.RuntimePlatform == Device.Android)
                     {
-                        Application.Current.MainPage = new NavigationPage(new Dashboard());
+                        Application.Current.MainPage = new MasterDetail();
                     }
                     else if (Device.RuntimePlatform == Device.iOS)
                     { 
-                        await Navigation.PushAsync(new NavigationPage(new Dashboard()));
+                        await Navigation.PushAsync(new MasterDetail());
                     }
                 }
             }
             else
             {
+                activitySpinner.IsVisible = false;
                 await DisplayAlert("Login", "Login Failed", "OK");
             }
         }
