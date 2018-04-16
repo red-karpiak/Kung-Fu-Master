@@ -15,7 +15,7 @@
                     <OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet>
                 </OnIdiom>
             </StackLayout.Padding>
-            <ActivityIndicator x:Name="activitySpinner" Color="Red" IsRunning="True" />
+            <ActivityIndicator x:Name="activitySpinner" Color="Black" IsRunning="True" />
             <Label x:Name="lblUsername" Text="Username"/>
             <Entry x:Name="entUsername" Placeholder="Username"/>
             <Label x:Name="lblPassword" Text="Password"/>

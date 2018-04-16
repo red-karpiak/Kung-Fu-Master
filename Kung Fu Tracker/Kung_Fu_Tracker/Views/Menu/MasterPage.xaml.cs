@@ -24,6 +24,7 @@ namespace Kung_Fu_Tracker.Views.Menu
             List<MasterMenuItem> menuList = new List<MasterMenuItem>();
             menuList.Add(new MasterMenuItem("User Information", "icon.png", Color.LightGreen, typeof(UserInfo)));
             menuList.Add(new MasterMenuItem("Patterns", "icon.png", Color.White, typeof(Patterns)));
+            menuList.Add(new MasterMenuItem("Settings", "Settings.ico", Color.White, typeof(SettingsHome)));
             lvContent.ItemsSource = menuList;
         }
         async private void btnLogout_ClickedAsync(object sender, EventArgs e)

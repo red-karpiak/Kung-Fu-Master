@@ -58,6 +58,9 @@
     <Compile Include="Views\DetailViews\Patterns.xaml.cs">
       <DependentUpon>Patterns.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DetailViews\Settings\SettingsHome.xaml.cs">
+      <DependentUpon>SettingsHome.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DetailViews\UserInfo.xaml.cs">
       <DependentUpon>UserInfo.xaml</DependentUpon>
     </Compile>
@@ -140,6 +143,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\DetailViews\Patterns.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\DetailViews\Settings\SettingsHome.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

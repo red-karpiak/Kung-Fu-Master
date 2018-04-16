@@ -3,10 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Kung_Fu_Tracker.Views.DetailViews.UserInfo">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="User Inforomation"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout x:Name="slMainLayout">
+            <RelativeLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout x:Name="slSubLayout" 
+                             Orientation="Vertical" 
+                             VerticalOptions="FillAndExpand" 
+                             RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                             RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}">
+                    <Label Text="User Inforomation"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center" />
+                </StackLayout>
+                <ActivityIndicator IsRunning="True" Color="Black" x:Name="elActivitySpinner"
+                                   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.45}"
+                                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}"/>
+            </RelativeLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

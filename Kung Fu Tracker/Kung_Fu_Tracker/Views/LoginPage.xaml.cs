@@ -42,6 +42,7 @@ namespace Kung_Fu_Tracker.Views
             if (user.CheckInformation())
             {
                 activitySpinner.IsVisible = true;
+                
                 await DisplayAlert("Login", "Login Successful", "OK");
                 //var result = await App.RestService.Login(user);
                 var result = new Token(); //dummy token for testing purposes
