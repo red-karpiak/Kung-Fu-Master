@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Kung_Fu_Tracker.Models;
 using Kung_Fu_Tracker.Views.DetailViews;
+using Kung_Fu_Tracker.Views.DetailViews.SettingsViews;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

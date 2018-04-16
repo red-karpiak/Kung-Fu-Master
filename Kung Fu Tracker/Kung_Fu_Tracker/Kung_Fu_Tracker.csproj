@@ -42,6 +42,7 @@
     <Compile Include="DataManagement\PatternDBController.cs" />
     <Compile Include="DataManagement\Pattern.cs" />
     <Compile Include="DataManagement\RestService.cs" />
+    <Compile Include="DataManagement\SettingsDBController.cs" />
     <Compile Include="DataManagement\TokenDBController.cs" />
     <Compile Include="DataManagement\UserDBController.cs" />
     <Compile Include="Interfaces\INetworkConnection.cs" />
@@ -52,13 +53,14 @@
     </Compile>
     <Compile Include="Models\Constants.cs" />
     <Compile Include="Models\MasterMenuItem.cs" />
+    <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\DetailViews\Patterns.xaml.cs">
       <DependentUpon>Patterns.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DetailViews\Settings\SettingsHome.xaml.cs">
+    <Compile Include="Views\DetailViews\SettingsViews\SettingsHome.xaml.cs">
       <DependentUpon>SettingsHome.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DetailViews\UserInfo.xaml.cs">
@@ -148,7 +150,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\DetailViews\Settings\SettingsHome.xaml">
+    <EmbeddedResource Include="Views\DetailViews\SettingsViews\SettingsHome.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

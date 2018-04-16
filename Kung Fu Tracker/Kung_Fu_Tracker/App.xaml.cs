@@ -17,6 +17,7 @@ namespace Kung_Fu_Tracker
         static PatternDBController patternDatabase;
         static UserDBController userDatabase;
         static TokenDBController tokenDatabase;
+        static SettingsDBController settingsDatabase;
         private static Label labelScreen;
         private static bool hasInternet;
         private static Page currentPage;
@@ -44,6 +45,8 @@ namespace Kung_Fu_Tracker
         {
             // Handle when your app resumes
         }
+
+        #region Connection and database properties
         public static RestService RestService
         {
             get
@@ -88,6 +91,20 @@ namespace Kung_Fu_Tracker
                 return patternDatabase;
             }
         }
+        public static SettingsDBController SettingsDatabase
+        {
+            get
+            {
+                if (settingsDatabase == null)
+                {
+                    settingsDatabase = new SettingsDBController();
+                }
+                return settingsDatabase;
+            }
+        }
+        #endregion
+
+        #region Connection functions
         public static void StartCheckIfInternet(Label label, Page page)
         {
             labelScreen = label;
@@ -162,5 +179,6 @@ namespace Kung_Fu_Tracker
             await currentPage.DisplayAlert("Internet", "Device has no Internet. Please reconnect.", "OK");
             noInterShow = false;
         }
+        #endregion
     }
 }

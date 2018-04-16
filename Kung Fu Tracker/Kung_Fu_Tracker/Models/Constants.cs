@@ -28,5 +28,6 @@ namespace Kung_Fu_Tracker.Models
         public static string weburl = "https://localhost/api/Auth/Login";
         public static string noInternetText = "No Internet connection available";
         public static string yesInternetText = "";
+        public static string settingsTitleText = "Settings";
     }
 }
