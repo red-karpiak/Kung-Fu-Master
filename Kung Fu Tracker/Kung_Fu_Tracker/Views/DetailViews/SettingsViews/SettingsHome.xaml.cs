@@ -14,6 +14,9 @@ namespace Kung_Fu_Tracker.Views.DetailViews.SettingsViews
     {
         Settings settings { get; set; }
         User user { get; set; }
+        SwitchCell switchCell1;
+        SwitchCell switchCell2;
+
         public SettingsHome()
         {
             InitializeComponent();
@@ -31,7 +34,63 @@ namespace Kung_Fu_Tracker.Views.DetailViews.SettingsViews
         {
             settings = App.SettingsDatabase.GetSettings();
             //currentUser = App.UserDatabase.GetUser();
+            switchCell1 = new SwitchCell
+            {
+                Text = "Switch 1",
+                IsEnabled = settings.switch1
+            };
 
+            switchCell1.OnChanged += (object sender, ToggledEventArgs e) =>
+            {
+                SwitchCell1Changed(sender, e);
+            };
+            switchCell2 = new SwitchCell
+            {
+                Text = "Switch 2",
+                IsEnabled = settings.switch2
+            };
+            switchCell2.OnChanged += (object sender, ToggledEventArgs e) =>
+            {
+                SwitchCell2Changed(sender, e);
+            };
+            TableView table;
+
+            table = new TableView
+            {
+                Root = new TableRoot
+                {
+                    new TableSection
+                    {
+                        switchCell1,
+                        switchCell2
+                    }
+                }
+            };
+
+            table.VerticalOptions = LayoutOptions.FillAndExpand;
+            MainLayout.Children.Add(table);
+
+        }
+
+        private void SwitchCell2Changed(object sender, ToggledEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SwitchCell1Changed(object sender, ToggledEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override async void OnDisappearing()
+        {
+            base.OnDisappearing();
+            SaveSettings();
+        }
+
+        private void SaveSettings()
+        {
+            App.SettingsDatabase.SaveSettings(settings);
         }
     }
 }

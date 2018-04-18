@@ -6,7 +6,7 @@
     <StackLayout x:Name="MasterLayout">
         <StackLayout x:Name="LogoStack" VerticalOptions="FillAndExpand">
             <Label x:Name="lblNoInternet" HorizontalOptions="Center" BackgroundColor="Red" TextColor="White" />
-            <Label x:Name="lblBanner" VerticalOptions="Center" HorizontalTextAlignment="Center" Margin="0,80,0,0"/>
+            <Label x:Name="lblBanner" VerticalOptions="Start" HorizontalTextAlignment="Center" Margin="0,50,0,0"/>
         </StackLayout>
         <StackLayout x:Name="LoginEntriesStack" VerticalOptions="StartAndExpand">
             <StackLayout.Padding>

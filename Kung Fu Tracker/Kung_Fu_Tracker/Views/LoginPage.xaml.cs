@@ -23,7 +23,7 @@ namespace Kung_Fu_Tracker.Views
         {
             lblBanner.Text = "少林功夫";
             lblBanner.TextColor = Constants.MainTextColor;
-            lblBanner.FontSize = 80;
+            lblBanner.FontSize = 40;
             BackgroundColor = Constants.BackgroundColor;
             lblUsername.TextColor = Constants.MainTextColor;
             lblPassword.TextColor = Constants.MainTextColor;
