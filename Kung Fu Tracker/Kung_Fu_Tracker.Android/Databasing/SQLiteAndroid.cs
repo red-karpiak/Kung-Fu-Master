@@ -19,7 +19,7 @@ namespace Kung_Fu_Tracker.Droid.Databasing
             string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             var path = Path.Combine(documentsPath, sqliteFilename);
             var conn = new SQLiteConnection(path);
-            return null;
+            return conn;
         }
     }
 }

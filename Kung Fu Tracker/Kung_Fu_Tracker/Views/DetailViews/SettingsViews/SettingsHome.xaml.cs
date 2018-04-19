@@ -37,7 +37,7 @@ namespace Kung_Fu_Tracker.Views.DetailViews.SettingsViews
             switchCell1 = new SwitchCell
             {
                 Text = "Switch 1",
-                IsEnabled = settings.switch1
+                On = settings.switch1
             };
 
             switchCell1.OnChanged += (object sender, ToggledEventArgs e) =>
@@ -47,7 +47,7 @@ namespace Kung_Fu_Tracker.Views.DetailViews.SettingsViews
             switchCell2 = new SwitchCell
             {
                 Text = "Switch 2",
-                IsEnabled = settings.switch2
+                On = settings.switch2
             };
             switchCell2.OnChanged += (object sender, ToggledEventArgs e) =>
             {
@@ -74,18 +74,20 @@ namespace Kung_Fu_Tracker.Views.DetailViews.SettingsViews
 
         private void SwitchCell2Changed(object sender, ToggledEventArgs e)
         {
-            throw new NotImplementedException();
+            settings.switch2 = e.Value;
         }
 
         private void SwitchCell1Changed(object sender, ToggledEventArgs e)
         {
-            throw new NotImplementedException();
+            settings.switch1 = e.Value;
         }
 
         protected override async void OnDisappearing()
         {
             base.OnDisappearing();
-            SaveSettings();
+            var action = await DisplayAlert("Settings", "Do you want to save these changes?", "OK", "Cancel");
+            if (action)
+                SaveSettings();
         }
 
         private void SaveSettings()

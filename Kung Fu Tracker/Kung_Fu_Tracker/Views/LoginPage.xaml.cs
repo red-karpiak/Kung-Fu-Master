@@ -44,6 +44,12 @@ namespace Kung_Fu_Tracker.Views
                 activitySpinner.IsVisible = true;
                 
                 await DisplayAlert("Login", "Login Successful", "OK");
+
+                if (App.SettingsDatabase.GetSettings() == null)
+                {
+                    Settings settings = new Settings();
+                    App.SettingsDatabase.SaveSettings(settings);
+                }
                 //var result = await App.RestService.Login(user);
                 var result = new Token(); //dummy token for testing purposes
                // if (result.accessToken != null)
