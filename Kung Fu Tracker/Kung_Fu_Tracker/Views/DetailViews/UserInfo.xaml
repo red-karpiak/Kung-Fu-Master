@@ -10,7 +10,7 @@
                              VerticalOptions="FillAndExpand" 
                              RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
                              RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}">
-                    <Label Text="User Inforomation"
+                    <Label Text="User Information"
                     VerticalOptions="Center" 
                     HorizontalOptions="Center" />
                 </StackLayout>

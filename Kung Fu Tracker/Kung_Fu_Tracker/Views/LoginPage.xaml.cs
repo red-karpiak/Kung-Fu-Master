@@ -43,7 +43,7 @@ namespace Kung_Fu_Tracker.Views
             {
                 activitySpinner.IsVisible = true;
                 
-                await DisplayAlert("Login", "Login Successful", "OK");
+                //await DisplayAlert("Login", "Login Successful", "OK");
 
                 if (App.SettingsDatabase.GetSettings() == null)
                 {
@@ -55,7 +55,7 @@ namespace Kung_Fu_Tracker.Views
                // if (result.accessToken != null)
                 if (result != null)
                 {
-                    activitySpinner.IsVisible = false;
+                    //activitySpinner.IsVisible = false;
                     //App.UserDatabase.SaveUser(user);
                     //App.TokenDatabase.SaveToken(result);
                     if (Device.RuntimePlatform == Device.Android)

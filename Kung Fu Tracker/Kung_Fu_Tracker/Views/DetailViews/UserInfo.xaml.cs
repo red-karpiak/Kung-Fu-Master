@@ -19,7 +19,8 @@ namespace Kung_Fu_Tracker.Views.DetailViews
         }
         private void Init()
         {
-            elActivitySpinner.IsVisible = true;
+            Title = "User Information";
+            elActivitySpinner.IsVisible = false;
         }
 
     }
