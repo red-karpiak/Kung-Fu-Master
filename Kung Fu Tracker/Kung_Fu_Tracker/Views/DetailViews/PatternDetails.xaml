@@ -5,9 +5,9 @@
              x:Class="Kung_Fu_Tracker.Views.DetailViews.PatternDetails">
     <ContentPage.Content>
         <StackLayout>
-            <dg:DataGrid ItemsSource="{Binding patterns}" SelectionEnabled="True" SelectedItem="{Binding SelectedItem}"
+            <dg:DataGrid ItemsSource="{Binding Patterns}" SelectionEnabled="True" SelectedItem="{Binding SelectedItem}"
                          RowHeight="70" HeaderHeight="50" BorderColor="#CCCCCC" HeaderBackground="#E0E6F8" 
-                         PullToRefreshCommand="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
+                         PullToRefreshCommand="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}" ActiveRowColor="#8899AA">
                 <dg:DataGrid.HeaderFontSize>
                     <OnIdiom  x:TypeArguments="x:Double">
                         <OnIdiom.Tablet>15</OnIdiom.Tablet>
@@ -15,9 +15,9 @@
                     </OnIdiom>
                 </dg:DataGrid.HeaderFontSize>
                 <dg:DataGrid.Columns>
-                    <dg:DataGridColumn Title="Order" PropertyName="Order" Width="30" />
-                    <dg:DataGridColumn Title="Feet" PropertName="Feet" Width="2*" />
-                    <dg:DataGridColumn Title="Hands" PropertName="Hands" Width="2*" />
+                    <dg:DataGridColumn Title="#" PropertyName="Order" Width="30" />
+                    <dg:DataGridColumn Title="Feet" PropertyName="Feet" Width="2*" />
+                    <dg:DataGridColumn Title="Hands" PropertyName="Hands" Width="2*" />
                 </dg:DataGrid.Columns>
                 <dg:DataGrid.RowsBackgroundColorPalette>
                     <dg:PaletteCollection>
