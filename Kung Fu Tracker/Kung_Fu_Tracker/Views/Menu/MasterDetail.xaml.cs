@@ -26,7 +26,7 @@ namespace Kung_Fu_Tracker.Views.Menu
             {
                 Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
                 masterPage.ListView.SelectedItem = null;
-                IsPresented = false; 
+                IsPresented = false;
             }
         }
     }

@@ -28,9 +28,9 @@ namespace Kung_Fu_Tracker.Views.Menu
             menuList.Add(new MasterMenuItem("Settings", "Settings.ico", Color.White, typeof(SettingsHome)));
             lvContent.ItemsSource = menuList;
         }
-        async private void btnLogout_ClickedAsync(object sender, EventArgs e)
+        private void btnLogout_ClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
+            App.Current.MainPage = new LoginPage();
         }
     }
 }

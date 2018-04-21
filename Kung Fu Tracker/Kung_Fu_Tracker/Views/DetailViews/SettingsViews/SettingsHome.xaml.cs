@@ -34,7 +34,7 @@ namespace Kung_Fu_Tracker.Views.DetailViews.SettingsViews
         {
             settings = App.SettingsDatabase.GetSettings();
             //currentUser = App.UserDatabase.GetUser();
-            switchCell1 = new SwitchCell
+            switchCell1 = new SwitchCell 
             {
                 Text = "Switch 1",
                 On = settings.switch1
@@ -82,12 +82,10 @@ namespace Kung_Fu_Tracker.Views.DetailViews.SettingsViews
             settings.switch1 = e.Value;
         }
 
-        protected override async void OnDisappearing()
+        protected override void OnDisappearing()
         {
+            SaveSettings();
             base.OnDisappearing();
-            var action = await DisplayAlert("Settings", "Do you want to save these changes?", "OK", "Cancel");
-            if (action)
-                SaveSettings();
         }
 
         private void SaveSettings()

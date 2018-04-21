@@ -37,7 +37,14 @@ namespace Kung_Fu_Tracker.Views.DetailViews
                 }
             }
             lvPatterns.ItemsSource = ranks;
+            lvPatterns.ItemTapped += LvPatterns_ItemTapped;
         }
 
+        private void LvPatterns_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            string rank = e.Item.ToString();
+            Navigation.PushAsync(new PatternDetails(rank));
+            lvPatterns.SelectedItem = null; 
+        }
     }
 }
