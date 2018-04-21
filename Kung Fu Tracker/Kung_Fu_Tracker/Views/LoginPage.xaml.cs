@@ -58,6 +58,7 @@ namespace Kung_Fu_Tracker.Views
                     //activitySpinner.IsVisible = false;
                     //App.UserDatabase.SaveUser(user);
                     //App.TokenDatabase.SaveToken(result);
+                    App.LoggedIn = true;
                     if (Device.RuntimePlatform == Device.Android)
                     {
                         Application.Current.MainPage = new MasterDetail();
@@ -70,6 +71,7 @@ namespace Kung_Fu_Tracker.Views
             }
             else
             {
+                App.LoggedIn = false;
                 activitySpinner.IsVisible = false;
                 await DisplayAlert("Login", "Login Failed", "OK");
             }
