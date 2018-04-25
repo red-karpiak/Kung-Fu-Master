@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.ComponentModel;
 using Xamarin.Forms;
-using Kung_Fu_Tracker.Views;
 using Kung_Fu_Tracker.Views.Menu;
+using Kung_Fu_Tracker.Models;
 
-namespace Kung_Fu_Tracker.Models
+namespace Kung_Fu_Tracker.Views.ViewModels
 {
     public class LoginModel : INotifyPropertyChanged
     {
@@ -43,7 +43,7 @@ namespace Kung_Fu_Tracker.Models
         {
             SubmitCommand = new Command(OnSubmit);
         }
-        async public void OnSubmit()
+        public void OnSubmit()
         {
             if (string.IsNullOrEmpty(Username))
             {

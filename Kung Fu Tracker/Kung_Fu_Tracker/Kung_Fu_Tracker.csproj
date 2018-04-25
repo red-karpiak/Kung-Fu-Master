@@ -41,8 +41,9 @@
     <Compile Include="Classes\HelperFunctions.cs" />
     <Compile Include="DataManagement\PatternDBController.cs" />
     <Compile Include="Interfaces\IDeviceHelper.cs" />
-    <Compile Include="Models\LoginModel.cs" />
-    <Compile Include="Models\MasterModel.cs" />
+    <Compile Include="Views\ViewModels\LoginModel.cs" />
+    <Compile Include="Views\ViewModels\MasterDetailModel.cs" />
+    <Compile Include="Views\ViewModels\MasterPageModel.cs" />
     <Compile Include="Models\Pattern.cs" />
     <Compile Include="DataManagement\RestService.cs" />
     <Compile Include="DataManagement\SettingsDBController.cs" />
