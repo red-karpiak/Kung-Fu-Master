@@ -38,8 +38,10 @@ namespace Kung_Fu_Tracker.Views
         }
         async Task butSignIn_ClickedAsync(object sender, EventArgs e)
         {
-            User user = new User(entUsername.Text, entPassword.Text);
-            if (user.CheckInformation())
+            //static user temporary for UI testing, move to database entries later.
+            App.LoggedInUser = new User(entUsername.Text, entPassword.Text);
+            
+            if (App.LoggedInUser.CheckInformation())
             {
                 activitySpinner.IsVisible = true;
                 

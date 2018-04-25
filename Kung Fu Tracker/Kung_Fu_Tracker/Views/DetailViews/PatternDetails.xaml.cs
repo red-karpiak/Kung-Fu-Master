@@ -14,7 +14,7 @@ namespace Kung_Fu_Tracker.Views.DetailViews
     public partial class PatternDetails : ContentPage
     {
         public List<Pattern> Patterns { get; set; }
-        bool isRefreshing = false;
+        bool isRefreshing;
         public Pattern SelectedItem { get; set; }
         public PatternDetails(string rank)
         {

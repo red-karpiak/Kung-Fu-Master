@@ -1,19 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              x:Class="Kung_Fu_Tracker.Views.DetailViews.UserInfo">
     <ContentPage.Content>
         <StackLayout x:Name="slMainLayout">
             <RelativeLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                <StackLayout x:Name="slSubLayout" 
-                             Orientation="Vertical" 
-                             VerticalOptions="FillAndExpand" 
-                             RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
-                             RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}">
-                    <Label Text="User Information"
-                    VerticalOptions="Center" 
-                    HorizontalOptions="Center" />
+                <StackLayout x:Name="MidStack" VerticalOptions="CenterAndExpand">
+                    <Grid>
+                        <Label Grid.Column="0" Grid.Row="0" Text="Height" FontSize="Medium"/>
+                        <Label Grid.Column="1" Grid.Row="0" Text="{Binding this.ScreenHeight}" FontSize="Medium"/>
+                        <Label Grid.Column="0" Grid.Row="1" Text="Width" FontSize="Medium"/>
+                        <Label Grid.Column="1" Grid.Row="1" Text="{Binding this.ScreenWidth}" FontSize="Medium"/>
+                        <Button Grid.Column="0" Grid.Row="2" Grid.RowSpan="3" Clicked="Button_Clicked"/>
+                        <DatePicker x:Name=""datePicker" VerticalOptions="Center" Date="{x:Static sys:DateTime.Now}">
+                            <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+                            <DatePicker.MinimumDate>
+                                <sys:DateTime x:FactoryMethod="Parse">
+                                    <x:Argument>
+                                        <x:String>
+                                            Jan 01 2000
+                                        </x:String>
+                                    </x:Argument>
+                                </sys:DateTime>
+                            </DatePicker.MinimumDate>
+                        </DatePicker>
+                    </Grid>
                 </StackLayout>
+                
                 <ActivityIndicator IsRunning="True" Color="Black" x:Name="elActivitySpinner"
                                    VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
                                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.45}"

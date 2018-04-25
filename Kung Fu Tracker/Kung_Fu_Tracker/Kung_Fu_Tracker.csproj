@@ -40,6 +40,8 @@
     </Compile>
     <Compile Include="Classes\HelperFunctions.cs" />
     <Compile Include="DataManagement\PatternDBController.cs" />
+    <Compile Include="Interfaces\IDeviceHelper.cs" />
+    <Compile Include="Models\ImageCircle.cs" />
     <Compile Include="Models\Pattern.cs" />
     <Compile Include="DataManagement\RestService.cs" />
     <Compile Include="DataManagement\SettingsDBController.cs" />

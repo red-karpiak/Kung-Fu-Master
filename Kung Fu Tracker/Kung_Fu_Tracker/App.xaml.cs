@@ -24,6 +24,12 @@ namespace Kung_Fu_Tracker
         private static Timer timer;
         private static bool noInterShow;
 
+        public static double DisplayScreenWidth;
+        public static double DisplayScreenHeight;
+        public static double DisplayScaleFactor;
+
+        public static User LoggedInUser { get; set; } //temporary until database is functional, just for UI testing
+
         public App()
         {
             InitializeComponent();
