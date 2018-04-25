@@ -30,6 +30,7 @@ namespace Kung_Fu_Tracker.Views.Menu
         }
         private void btnLogout_ClickedAsync(object sender, EventArgs e)
         {
+            App.LoggedIn = false;
             App.Current.MainPage = new LoginPage();
         }
     }

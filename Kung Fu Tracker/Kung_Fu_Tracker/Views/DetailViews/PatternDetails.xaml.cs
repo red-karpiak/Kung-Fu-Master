@@ -50,5 +50,16 @@ namespace Kung_Fu_Tracker.Views.DetailViews
             get { return isRefreshing; }
             set { isRefreshing = value; OnPropertyChanged(nameof(IsRefreshing)); }
         }
+
+        private void Save_Clicked(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Cancel_Clicked(object sender, EventArgs e)
+        {
+            
+            
+        }
     }
 }

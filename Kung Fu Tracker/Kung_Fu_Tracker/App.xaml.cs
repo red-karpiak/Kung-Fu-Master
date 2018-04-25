@@ -18,6 +18,7 @@ namespace Kung_Fu_Tracker
         static UserDBController userDatabase;
         static TokenDBController tokenDatabase;
         static SettingsDBController settingsDatabase;
+        public static bool LoggedIn = false;
         private static Label labelScreen;
         private static bool hasInternet;
         private static Page currentPage;
