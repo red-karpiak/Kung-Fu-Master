@@ -9,18 +9,18 @@
             <Label x:Name="lblBanner" VerticalOptions="Start" HorizontalTextAlignment="Center" Margin="0,50,0,0"/>
         </StackLayout>
         <StackLayout x:Name="LoginEntriesStack" VerticalOptions="StartAndExpand">
-            <StackLayout.Padding>
+            <!--<StackLayout.Padding>
                 <OnIdiom x:TypeArguments="Thickness">
                     <OnIdiom.Phone>40,0,40,0</OnIdiom.Phone>
                     <OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet>
                 </OnIdiom>
             </StackLayout.Padding>
-            <ActivityIndicator x:Name="activitySpinner" Color="Black" IsRunning="True" />
-            <Label x:Name="lblUsername" Text="Username"/>
-            <Entry x:Name="entUsername" Placeholder="Username"/>
+            <ActivityIndicator x:Name="activitySpinner" Color="Black" IsRunning="True" />-->
+            <Label x:Name="lblUsername" Text="Username" />
+            <Entry x:Name="entUsername" Text="{Binding Username}" Placeholder="Username"/>
             <Label x:Name="lblPassword" Text="Password"/>
-            <Entry x:Name="entPassword" Placeholder="Password" IsPassword="true"/>
-            <Button x:Name="butSignIn" Text="Sign In" Clicked="butSignIn_ClickedAsync"/>
+            <Entry x:Name="entPassword" Text="{Binding Password}" Placeholder="Password" IsPassword="true"/>
+            <Button x:Name="butSignIn" Text="Sign In" Command="{Binding SubmitCommand}"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>
