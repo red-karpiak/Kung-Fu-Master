@@ -10,5 +10,9 @@ namespace Kung_Fu_Tracker.Views.ViewModels
     public class MasterDetailModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
+        public MasterDetailModel()
+        {
+
+        }
     }
 }

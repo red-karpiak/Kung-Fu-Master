@@ -27,6 +27,7 @@ namespace Kung_Fu_Tracker.Views.ViewModels
                 if (selectedItem != value)
                 {
                     selectedItem = value;
+                    
                 }
             }
         }

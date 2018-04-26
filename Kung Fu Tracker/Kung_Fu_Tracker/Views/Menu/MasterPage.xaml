@@ -9,7 +9,7 @@
                 <Label x:Name="lblBanner"/>
             </StackLayout>
             <StackLayout x:Name="MidStack" VerticalOptions="CenterAndExpand">
-                <ListView x:Name="lvContent" ItemsSource="{Binding Items}" SeparatorVisibility="Default" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+                <ListView x:Name="lvContent" ItemsSource="{Binding Items}" SeparatorVisibility="Default" SelectedItem="{Binding SelectedItem}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

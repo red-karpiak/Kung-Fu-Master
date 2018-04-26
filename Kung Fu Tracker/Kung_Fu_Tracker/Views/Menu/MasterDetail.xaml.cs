@@ -18,12 +18,12 @@ namespace Kung_Fu_Tracker.Views.Menu
         public MasterDetail()
         {
             InitializeComponent();
-            masterDetailModel = new MasterDetailModel();
+           // masterDetailModel = new MasterDetailModel();
             this.BindingContext = masterDetailModel;
-            masterPage.ListView.ItemSelected += ListView_ItemSelected;
+           // masterPage.ListView.ItemSelected += ListView_ItemSelected;
         }
 
-        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        /*private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as MasterMenuItem;
             if (item != null)
@@ -32,6 +32,6 @@ namespace Kung_Fu_Tracker.Views.Menu
                 masterPage.ListView.SelectedItem = null;
                 IsPresented = false;
             }
-        }
+        }*/
     }
 }
