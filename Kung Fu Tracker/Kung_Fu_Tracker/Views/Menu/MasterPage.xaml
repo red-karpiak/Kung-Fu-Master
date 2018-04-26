@@ -9,7 +9,7 @@
                 <Label x:Name="lblBanner"/>
             </StackLayout>
             <StackLayout x:Name="MidStack" VerticalOptions="CenterAndExpand">
-                <ListView x:Name="lvContent" SeparatorVisibility="Default">
+                <ListView x:Name="lvContent" ItemsSource="{Binding Items}" SeparatorVisibility="Default" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -23,7 +23,7 @@
                 </ListView>
             </StackLayout>
             <StackLayout x:Name="BottomStack" VerticalOptions="EndAndExpand">
-                <Button x:Name="btnLogout" Text="Logout" Clicked="btnLogout_ClickedAsync"/>
+                <Button x:Name="btnLogout" Text="Logout" Command="Logout"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

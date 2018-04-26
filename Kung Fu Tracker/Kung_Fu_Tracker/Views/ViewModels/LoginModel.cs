@@ -49,14 +49,18 @@ namespace Kung_Fu_Tracker.Views.ViewModels
             {
                 //because the functionality of the ContentPage class is not available in the ViewModel, we have to use
                 //a MessagingCenter, a utility that handles messages between classes
-                MessagingCenter.Send(this, "LoginAlert", Username);
+                MessagingCenter.Send(this, "InvalidUsername", Username);
+                return;
+            }
+            if (string.IsNullOrEmpty(Password))
+            {
+                MessagingCenter.Send(this, "InvalidPassword", Password);
+                return;
             }
             App.LoggedInUser = new User(Username, Password);
 
             if (App.LoggedInUser.CheckInformation())
             {
-                //await DisplayAlert("Login", "Login Successful", "OK");
-
                 if (App.SettingsDatabase.GetSettings() == null)
                 {
                     Settings settings = new Settings();
@@ -64,7 +68,7 @@ namespace Kung_Fu_Tracker.Views.ViewModels
                 }
                 //var result = await App.RestService.Login(user);
                 var result = new Token(); //dummy token for testing purposes
-                                          // if (result.accessToken != null)
+                // if (result.accessToken != null)
                 if (result != null)
                 {
                     //activitySpinner.IsVisible = false;

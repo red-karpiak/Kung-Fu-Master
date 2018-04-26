@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Kung_Fu_Tracker.Models;
 using Kung_Fu_Tracker.Views.Menu;
+using Kung_Fu_Tracker.Views.ViewModels;
 
 namespace Kung_Fu_Tracker.Views
 {
@@ -32,11 +33,11 @@ namespace Kung_Fu_Tracker.Views
         }
         public void Subscriptions()
         {
-            MessagingCenter.Subscribe<LoginModel, string>(this, "LoginAlert", (sender, username) =>
+            MessagingCenter.Subscribe<LoginModel, string>(this, "InvalidUsername", (sender, username) =>
             {
                 DisplayAlert("Login Failure", "You must supply a username", "Cancel");
             });
-            MessagingCenter.Subscribe<LoginModel, string>(this, "LoginAlert", (sender, username) =>
+            MessagingCenter.Subscribe<LoginModel, string>(this, "InvalidPassword", (sender, password) =>
             {
                 DisplayAlert("Login Failure", "You must supply a password", "Cancel");
             });

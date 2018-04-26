@@ -1,4 +1,5 @@
 ﻿using Kung_Fu_Tracker.Models;
+using Kung_Fu_Tracker.Views.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,12 @@ namespace Kung_Fu_Tracker.Views.Menu
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MasterDetail : MasterDetailPage
     {
+        public MasterDetailModel masterDetailModel;
         public MasterDetail()
         {
             InitializeComponent();
+            masterDetailModel = new MasterDetailModel();
+            this.BindingContext = masterDetailModel;
             masterPage.ListView.ItemSelected += ListView_ItemSelected;
         }
 

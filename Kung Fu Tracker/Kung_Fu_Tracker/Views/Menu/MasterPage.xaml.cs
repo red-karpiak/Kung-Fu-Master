@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Kung_Fu_Tracker.Models;
 using Kung_Fu_Tracker.Views.DetailViews;
 using Kung_Fu_Tracker.Views.DetailViews.SettingsViews;
+using Kung_Fu_Tracker.Views.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,18 +16,23 @@ namespace Kung_Fu_Tracker.Views.Menu
     public partial class MasterPage : ContentPage
     {
         public ListView ListView { get { return lvContent; } }
+        public List<MasterMenuItem> Items { get; set; }
+        public MasterPageModel masterPageModel;
         public MasterPage()
         {
             InitializeComponent();
+            masterPageModel = new MasterPageModel();
+            this.BindingContext = masterPageModel;
             SetItems();
         }
         private void SetItems()
         {
-            List<MasterMenuItem> menuList = new List<MasterMenuItem>();
-            menuList.Add(new MasterMenuItem("User Information", "icon.png", Color.White, typeof(UserInfo)));
-            menuList.Add(new MasterMenuItem("Patterns", "icon.png", Color.White, typeof(Patterns)));
-            menuList.Add(new MasterMenuItem("Settings", "Settings.ico", Color.White, typeof(SettingsHome)));
-            lvContent.ItemsSource = menuList;
+            Items = new List<MasterMenuItem>
+            {
+                new MasterMenuItem("User Information", "icon.png", Color.White, typeof(UserInfo)),
+                new MasterMenuItem("Patterns", "icon.png", Color.White, typeof(Patterns)),
+                new MasterMenuItem("Settings", "Settings.ico", Color.White, typeof(SettingsHome))
+            };
         }
         private void btnLogout_ClickedAsync(object sender, EventArgs e)
         {
