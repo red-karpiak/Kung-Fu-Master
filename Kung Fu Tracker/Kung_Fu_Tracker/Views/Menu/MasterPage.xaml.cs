@@ -23,6 +23,22 @@ namespace Kung_Fu_Tracker.Views.Menu
             masterPageModel = new MasterPageModel();
             this.BindingContext = masterPageModel;
         }
-        
+        protected override void OnAppearing()
+        {
+            MessagingCenter.Subscribe<MasterPageModel, MasterMenuItem>(this, "MasterDetail", (sender, selectedItem) =>
+            {
+                var item = selectedItem as MasterMenuItem;
+                ((MasterDetailPage)Application.Current.MainPage).Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
+                ((MasterDetailPage)Application.Current.MainPage).IsPresented = false;
+
+            });
+            base.OnAppearing();
+        }
+        protected override void OnDisappearing()
+        {
+            MessagingCenter.Unsubscribe<MasterPageModel, MasterMenuItem>(this, "MasterDetail");
+            base.OnDisappearing();
+        }
+
     }
 }

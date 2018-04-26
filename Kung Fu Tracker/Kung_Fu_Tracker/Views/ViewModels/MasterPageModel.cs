@@ -17,9 +17,21 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
         public List<MasterMenuItem> Items { get; set; }
         public ICommand LogoutCommand { get; set; }
-        
+
+        private MasterMenuItem selectedItem;
+        public MasterMenuItem SelectedItem
+        {
+            get { return selectedItem; }
+            set
+            {
+                if (selectedItem != value)
+                {
+                    selectedItem = value;
+                }
+            }
+        }
         public MasterPageModel()
-        { 
+        {
             LogoutCommand = new Command(OnLogout);
             SetItems();
         }
