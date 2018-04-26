@@ -23,7 +23,7 @@
                 </ListView>
             </StackLayout>
             <StackLayout x:Name="BottomStack" VerticalOptions="EndAndExpand">
-                <Button x:Name="btnLogout" Text="Logout" Command="Logout"/>
+                <Button x:Name="btnLogout" Text="Logout" Command="{Binding LogoutCommand}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
