@@ -10,7 +10,7 @@ namespace Kung_Fu_Tracker.Views.ViewModels
 {
     public class UserInfoViewModel
     {
-        public ICommand ButtonCommand;
+        public ICommand ButtonCommand { get; set; }
         public bool IsActivityIndicatorRunning { get; set; }
         public bool IsActivityIndicatorVisible { get; set; }
         public bool IsActivityIndicatorEnabled { get; set; }
@@ -23,7 +23,7 @@ namespace Kung_Fu_Tracker.Views.ViewModels
             Init();
             ButtonCommand = new Command(OnButtonPress);
         }
-        private void OnButtonPress()
+        public void OnButtonPress()
         {
             List<string> list = new List<string>
             {

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:sys="clr-namespace:System;assembly=mscorlib"
-             x:Class="Kung_Fu_Tracker.Views.DetailViews.UserInfo">
+             x:Class="Kung_Fu_Tracker.Views.DetailViews.UserInfo"
+             Title="UserInfo">
     <ContentPage.Content Title="User Information">
         <StackLayout x:Name="slMainLayout">
             <RelativeLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
@@ -12,7 +12,7 @@
                         <Label Grid.Column="1" Grid.Row="0" Text="{Binding ScreenHeight}" FontSize="Medium"/>
                         <Label Grid.Column="0" Grid.Row="1" Text="Width" FontSize="Medium"/>
                         <Label Grid.Column="1" Grid.Row="1" Text="{Binding ScreenWidth}" FontSize="Medium"/>
-                        <Button Grid.Column="0" Grid.Row="2" Grid.RowSpan="3" Command="{Binding ButtonCommand}">
+                        <Button Grid.Column="0" Grid.Row="2" Grid.RowSpan="3" Command="{Binding ButtonCommand}"/>
                     </Grid>
                 </StackLayout>
                 

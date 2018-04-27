@@ -46,5 +46,9 @@ namespace Kung_Fu_Tracker.Views.DetailViews
             Navigation.PushAsync(new PatternDetails(rank));
             lvPatterns.SelectedItem = null; 
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+        }
     }
 }
