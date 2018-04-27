@@ -18,20 +18,8 @@ namespace Kung_Fu_Tracker.Views.Menu
         public MasterDetail()
         {
             InitializeComponent();
-           // masterDetailModel = new MasterDetailModel();
-            this.BindingContext = masterDetailModel;
-           // masterPage.ListView.ItemSelected += ListView_ItemSelected;
+            //we may decide to use this model later, but for now just leave it commented.
+            //this.BindingContext = masterDetailModel;
         }
-
-        /*private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            var item = e.SelectedItem as MasterMenuItem;
-            if (item != null)
-            {
-                Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
-                masterPage.ListView.SelectedItem = null;
-                IsPresented = false;
-            }
-        }*/
     }
 }
