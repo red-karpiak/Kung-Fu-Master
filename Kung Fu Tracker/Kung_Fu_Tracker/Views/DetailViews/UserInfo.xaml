@@ -15,7 +15,6 @@
                         <Button Grid.Column="0" Grid.Row="2" Grid.RowSpan="3" Command="{Binding ButtonCommand}"/>
                     </Grid>
                 </StackLayout>
-                
                 <ActivityIndicator IsRunning="{Binding IsActivityIndicatorRunning}" Color="Black" x:Name="elActivitySpinner" IsVisible="{Binding IsActivityIndicatorVisible}"
                                    IsEnabled="{Binding IsActivityIndicatorEnabled}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
                                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.45}"

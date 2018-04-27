@@ -24,9 +24,7 @@ namespace Kung_Fu_Tracker.Views.DetailViews
                 {
                     message += s + "\n";
                 }
-
                 DisplayAlert("Details", message, "Cancel");
-
             });
             base.OnAppearing();
         }

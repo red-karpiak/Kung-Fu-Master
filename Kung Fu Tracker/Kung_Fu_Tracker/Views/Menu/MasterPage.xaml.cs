@@ -30,7 +30,6 @@ namespace Kung_Fu_Tracker.Views.Menu
                 var item = selectedItem as MasterMenuItem;
                 ((MasterDetailPage)Application.Current.MainPage).Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
                 ((MasterDetailPage)Application.Current.MainPage).IsPresented = false;
-
             });
             base.OnAppearing();
         }
