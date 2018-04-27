@@ -15,7 +15,7 @@ namespace Kung_Fu_Tracker.Views.Menu
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MasterPage : ContentPage
     {
-        public ListView ListView { get { return lvContent; } }
+        //public ListView ListView { get { return lvContent; } }
         public MasterPageViewModel masterPageModel;
         public MasterPage()
         {

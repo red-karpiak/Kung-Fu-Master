@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Kung_Fu_Tracker.Views.DetailViews.UserInfo"
-             Title="UserInfo">
-    <ContentPage.Content Title="User Information">
+             Title="User Information">
+    <ContentPage.Content>
         <StackLayout x:Name="slMainLayout">
             <RelativeLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <StackLayout x:Name="MidStack" VerticalOptions="CenterAndExpand">

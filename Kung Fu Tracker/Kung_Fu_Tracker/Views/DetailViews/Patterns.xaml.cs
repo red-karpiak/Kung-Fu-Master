@@ -1,5 +1,6 @@
 ﻿using Kung_Fu_Tracker.Classes;
 using Kung_Fu_Tracker.Models;
+using Kung_Fu_Tracker.Views.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,40 +16,27 @@ namespace Kung_Fu_Tracker.Views.DetailViews
     public partial class Patterns : ContentPage
     {
         List<string> ranks = new List<string>();
+        public PatternsViewModel patternViewModel;
         public Patterns()
         {
             InitializeComponent();
-            Title = "Patterns";
-            //User user = App.UserDatabase.GetUser()
-            InitList();
-        }
-        private void InitList()
-        {
-            //needs to be replaced by logged in user rank.
-            string Rank = "Black";
-            int rankID;
-            Dictionary<string, int> dictRanks = HelperFunctions.GetRanks();
-            if (dictRanks.ContainsKey(Rank))
-            {
-                rankID = dictRanks[Rank];
-                for (int i = 1; i <= rankID; i++)
-                {
-                    ranks.Add(dictRanks.FirstOrDefault(x => x.Value == i).Key);
-                }
-            }
-            lvPatterns.ItemsSource = ranks;
-            lvPatterns.ItemTapped += LvPatterns_ItemTapped;
-        }
-
-        private void LvPatterns_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            string rank = e.Item.ToString();
-            Navigation.PushAsync(new PatternDetails(rank));
-            lvPatterns.SelectedItem = null; 
+            patternViewModel = new PatternsViewModel();
+            this.BindingContext = patternViewModel;
         }
         protected override void OnAppearing()
         {
+            MessagingCenter.Subscribe<PatternsViewModel, string>(this, "Pattern", (sender, selectedItem) =>
+            {
+                string rank = selectedItem;
+                Navigation.PushAsync(new PatternDetails(rank));
+                lvPatterns.SelectedItem = null;
+            });
             base.OnAppearing();
+        }
+        protected override void OnDisappearing()
+        {
+            MessagingCenter.Unsubscribe<PatternsViewModel, string>(this, "Pattern");
+            base.OnDisappearing();
         }
     }
 }
