@@ -41,9 +41,9 @@
     <Compile Include="Classes\HelperFunctions.cs" />
     <Compile Include="DataManagement\PatternDBController.cs" />
     <Compile Include="Interfaces\IDeviceHelper.cs" />
-    <Compile Include="Views\ViewModels\LoginModel.cs" />
+    <Compile Include="Views\ViewModels\LoginViewModel.cs" />
     <Compile Include="Views\ViewModels\MasterDetailModel.cs" />
-    <Compile Include="Views\ViewModels\MasterPageModel.cs" />
+    <Compile Include="Views\ViewModels\MasterPageViewModel.cs" />
     <Compile Include="Models\Pattern.cs" />
     <Compile Include="DataManagement\RestService.cs" />
     <Compile Include="DataManagement\SettingsDBController.cs" />
@@ -82,6 +82,9 @@
     <Compile Include="Views\Menu\MasterPage.xaml.cs">
       <DependentUpon>MasterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ViewModels\PatternsViewModel.cs" />
+    <Compile Include="Views\ViewModels\SettingsViewModel.cs" />
+    <Compile Include="Views\ViewModels\UserInfoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">

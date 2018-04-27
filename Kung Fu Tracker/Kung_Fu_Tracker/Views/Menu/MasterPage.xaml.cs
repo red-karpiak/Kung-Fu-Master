@@ -16,16 +16,16 @@ namespace Kung_Fu_Tracker.Views.Menu
     public partial class MasterPage : ContentPage
     {
         public ListView ListView { get { return lvContent; } }
-        public MasterPageModel masterPageModel;
+        public MasterPageViewModel masterPageModel;
         public MasterPage()
         {
             InitializeComponent();
-            masterPageModel = new MasterPageModel();
+            masterPageModel = new MasterPageViewModel();
             this.BindingContext = masterPageModel;
         }
         protected override void OnAppearing()
         {
-            MessagingCenter.Subscribe<MasterPageModel, MasterMenuItem>(this, "MasterDetail", (sender, selectedItem) =>
+            MessagingCenter.Subscribe<MasterPageViewModel, MasterMenuItem>(this, "MasterDetail", (sender, selectedItem) =>
             {
                 var item = selectedItem as MasterMenuItem;
                 ((MasterDetailPage)Application.Current.MainPage).Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
@@ -36,7 +36,7 @@ namespace Kung_Fu_Tracker.Views.Menu
         }
         protected override void OnDisappearing()
         {
-            MessagingCenter.Unsubscribe<MasterPageModel, MasterMenuItem>(this, "MasterDetail");
+            MessagingCenter.Unsubscribe<MasterPageViewModel, MasterMenuItem>(this, "MasterDetail");
             base.OnDisappearing();
         }
 

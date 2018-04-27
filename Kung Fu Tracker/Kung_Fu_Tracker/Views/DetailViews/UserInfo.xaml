@@ -3,21 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              x:Class="Kung_Fu_Tracker.Views.DetailViews.UserInfo">
-    <ContentPage.Content>
+    <ContentPage.Content Title="User Information">
         <StackLayout x:Name="slMainLayout">
             <RelativeLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <StackLayout x:Name="MidStack" VerticalOptions="CenterAndExpand">
                     <Grid>
                         <Label Grid.Column="0" Grid.Row="0" Text="Height" FontSize="Medium"/>
-                        <Label Grid.Column="1" Grid.Row="0" Text="{Binding this.ScreenHeight}" FontSize="Medium"/>
+                        <Label Grid.Column="1" Grid.Row="0" Text="{Binding ScreenHeight}" FontSize="Medium"/>
                         <Label Grid.Column="0" Grid.Row="1" Text="Width" FontSize="Medium"/>
-                        <Label Grid.Column="1" Grid.Row="1" Text="{Binding this.ScreenWidth}" FontSize="Medium"/>
-                        <Button Grid.Column="0" Grid.Row="2" Grid.RowSpan="3" Clicked="Button_Clicked"/>
+                        <Label Grid.Column="1" Grid.Row="1" Text="{Binding ScreenWidth}" FontSize="Medium"/>
+                        <Button Grid.Column="0" Grid.Row="2" Grid.RowSpan="3" Command="{Binding ButtonCommand}">
                     </Grid>
                 </StackLayout>
                 
-                <ActivityIndicator IsRunning="True" Color="Black" x:Name="elActivitySpinner"
-                                   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                <ActivityIndicator IsRunning="{Binding IsActivityIndicatorRunning}" Color="Black" x:Name="elActivitySpinner" IsVisible="{Binding IsActivityIndicatorVisible}"
+                                   IsEnabled="{Binding IsActivityIndicatorEnabled}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
                                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.45}"
                                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}"/>
             </RelativeLayout>

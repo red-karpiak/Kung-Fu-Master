@@ -11,7 +11,7 @@ using Kung_Fu_Tracker.Models;
 
 namespace Kung_Fu_Tracker.Views.ViewModels
 {
-    public class LoginModel : INotifyPropertyChanged
+    public class LoginViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
         private string username;
@@ -39,7 +39,7 @@ namespace Kung_Fu_Tracker.Views.ViewModels
             }
         }
         public ICommand SubmitCommand { get; set; }
-        public LoginModel()
+        public LoginViewModel()
         {
             SubmitCommand = new Command(OnSubmit);
         }

@@ -15,11 +15,11 @@ namespace Kung_Fu_Tracker.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
-        public LoginModel loginModel;
+        public LoginViewModel loginModel;
         public LoginPage()
         {
             InitializeComponent();
-            loginModel = new LoginModel();
+            loginModel = new LoginViewModel();
             Subscriptions();
             this.BindingContext = loginModel;
             entUsername.Completed += (object sender, EventArgs e) =>
@@ -33,11 +33,11 @@ namespace Kung_Fu_Tracker.Views
         }
         public void Subscriptions()
         {
-            MessagingCenter.Subscribe<LoginModel, string>(this, "InvalidUsername", (sender, username) =>
+            MessagingCenter.Subscribe<LoginViewModel, string>(this, "InvalidUsername", (sender, username) =>
             {
                 DisplayAlert("Login Failure", "You must supply a username", "Cancel");
             });
-            MessagingCenter.Subscribe<LoginModel, string>(this, "InvalidPassword", (sender, password) =>
+            MessagingCenter.Subscribe<LoginViewModel, string>(this, "InvalidPassword", (sender, password) =>
             {
                 DisplayAlert("Login Failure", "You must supply a password", "Cancel");
             });
