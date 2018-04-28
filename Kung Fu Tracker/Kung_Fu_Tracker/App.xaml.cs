@@ -158,7 +158,7 @@ namespace Kung_Fu_Tracker
             }
         }
 
-        public static async Task<bool> CheckConnection()
+        public static bool CheckConnection()
         {
             var networkConnection = DependencyService.Get<INetworkConnection>();
             networkConnection.CheckNetworkConnection();

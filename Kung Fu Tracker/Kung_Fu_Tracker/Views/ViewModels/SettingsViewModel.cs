@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Kung_Fu_Tracker.Views.ViewModels
 {
@@ -38,9 +39,27 @@ namespace Kung_Fu_Tracker.Views.ViewModels
                 }
             }
         }
+        public ICommand PasswordChangeCommand;
+        //use this property to change move the "dialog" up the page.
+        public int AbsYTranslation
+        {
+            get
+            {
+                return -((int)App.DisplayScreenHeight / 4);
+            }
+        }
         public SettingsViewModel()
         {
+            if (settings == null)
+            {
+                settings = new Settings();
+            }
             UserPassword = App.LoggedInUser.Password;
+            
+        }
+        public void OnPasswordChange()
+        {
+
         }
     }
 }

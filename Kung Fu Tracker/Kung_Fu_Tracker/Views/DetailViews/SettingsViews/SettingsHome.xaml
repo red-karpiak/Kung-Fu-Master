@@ -17,17 +17,56 @@
                 </OnPlatform.Android>
             </OnPlatform>
         </StackLayout.Padding>
-        <TableView x:Name="table" VerticalOptions="FillAndExpand">
-            <TableRoot x:Name="tableRoot">
-                <TableSection x:Name="tableSection">
-                    <SwitchCell x:Name="switchOne" Text="Switch One" On="{Binding SwitchOneOn}"/>
-                    <SwitchCell x:Name="switchTwo" Text="Switch Two" On="{Binding SwitchTwoOn}"/>
-                    <TableSection>
-                        <TextCell x:Name="passwordText" Text="Password: "/>
-                        <EntryCell x:Name="entryPassword" Text="{Binding UserPassword}" IsEnabled="False" />
-                    </TableSection>
-                </TableSection>
-            </TableRoot>
-        </TableView>
+        <StackLayout x:Name="gridSettings" VerticalOptions="StartAndExpand">
+            <Grid VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" Text="Switch One:" FontSize="Small"/>
+                <Switch Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="1" IsToggled="{Binding SwitchOneOn}"/>
+                <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="1" Text="Switch Two " FontSize="Small"/>
+                <Switch Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="1" IsToggled="{Binding SwitchTwoOn}"/>
+                <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="1" Text="Password"/>
+                <Entry Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" IsPassword="True" IsEnabled="False" Text="{Binding UserPassword}"/>
+                <Button Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" Text="Change Password" FontSize="Small"/>
+                <Button Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4" Text="Check Connection" FontSize="Small"/>
+            </Grid>
+        </StackLayout>
+        <AbsoluteLayout VerticalOptions="Center" HorizontalOptions="Center" TranslationY="{Binding AbsYTranslation}" IsVisible="True">
+            <Frame x:Name="frameChangePass" VerticalOptions="Center" >
+                <Grid VerticalOptions="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" Text="Old Password:" FontSize="Small"/>
+                    <Entry x:Name="changeOldPass" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" IsPassword="True"/>
+                    <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="1" Text="New Password:" FontSize="Small"/>
+                    <Entry x:Name="changeNewPass1" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" IsPassword="True"/>
+                    <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="1" Text="Confirm New Password:" FontSize="Small"/>
+                    <Entry x:Name="changeNewPass2" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" IsPassword="True"/>
+                    <Button Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Text="OK" FontSize="Small"/>
+                    <Button Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Text="Cancel" FontSize="Small"/>
+                </Grid>
+            </Frame>
+        </AbsoluteLayout>
     </StackLayout>
 </ContentPage>
