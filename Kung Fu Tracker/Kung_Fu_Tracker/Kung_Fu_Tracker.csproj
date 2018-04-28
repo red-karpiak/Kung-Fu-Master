@@ -82,6 +82,7 @@
     <Compile Include="Views\Menu\MasterPage.xaml.cs">
       <DependentUpon>MasterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ViewModels\PatternDetailsViewModel.cs" />
     <Compile Include="Views\ViewModels\PatternsViewModel.cs" />
     <Compile Include="Views\ViewModels\SettingsViewModel.cs" />
     <Compile Include="Views\ViewModels\UserInfoViewModel.cs" />

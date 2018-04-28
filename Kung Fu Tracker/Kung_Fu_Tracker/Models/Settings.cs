@@ -12,7 +12,8 @@ namespace Kung_Fu_Tracker.Models
     {
         [PrimaryKey]
         public int ID { get; set; }
-        public bool switch1 { get; set; }
-        public bool switch2 { get; set; }
+        public bool Switch1 { get; set; }
+        public bool Switch2 { get; set; }
+        public string Password { get; set; }
     }
 }
