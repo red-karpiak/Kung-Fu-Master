@@ -22,7 +22,8 @@ namespace Kung_Fu_Tracker.Views.DetailViews.SettingsViews
         }
         protected override void OnAppearing()
         {
-            //App.StartCheckIfInternet(lblNoInternet, this);
+            MessagingCenter.Subscribe<SettingsViewModel, >
+
             base.OnAppearing();
         }
 
