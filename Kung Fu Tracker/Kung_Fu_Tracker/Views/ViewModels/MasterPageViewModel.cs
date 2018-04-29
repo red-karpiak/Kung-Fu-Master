@@ -12,9 +12,8 @@ using Xamarin.Forms;
 
 namespace Kung_Fu_Tracker.Views.ViewModels
 {
-    public class MasterPageViewModel : INotifyPropertyChanged
+    public class MasterPageViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged = delegate { };
         public List<MasterMenuItem> Items { get; set; }
         public ICommand LogoutCommand { get; set; }
 

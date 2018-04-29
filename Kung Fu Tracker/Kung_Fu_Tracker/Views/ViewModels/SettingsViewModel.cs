@@ -11,10 +11,9 @@ using Xamarin.Forms;
 
 namespace Kung_Fu_Tracker.Views.ViewModels
 {
-    public class SettingsViewModel : INotifyPropertyChanged
+    public class SettingsViewModel
     {
         #region Variables and Properties
-        public event PropertyChangedEventHandler PropertyChanged = delegate { };
         Settings Settings { get; set; }
         public string UserPassword { get; set; }
         private bool switchOneOn;
@@ -47,17 +46,11 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         public ICommand ConfirmPasswordChange { get; set; }
         public ICommand CancelPasswordChange { get; set; }
         private bool passwordToggleView;
+        public Thickness Thickness { get; set; }
         public bool PasswordToggleView
         {
-            get { return passwordToggleView; }
-            set
-            {
-                if (passwordToggleView != value)
-                {
-                    passwordToggleView = value;
-                    ToggleFrame();
-                }
-            }
+            get => passwordToggleView;
+            set => ToggleFrame(ref passwordToggleView, value);
             
         }
         public Dictionary<string, string> ChangePasswordValues { get; set; }
@@ -78,7 +71,8 @@ namespace Kung_Fu_Tracker.Views.ViewModels
 
             PasswordToggleView = false;
 
-            AbsYTranslation = -((int)App.DisplayScreenHeight / 4);
+            //AbsYTranslation = (int)(App.DisplayScreenHeight / 4);
+            Thickness = new Thickness(0, (int)(App.DisplayScreenHeight / 5), 0, 0);
 
             //all commands to subscribe to
             PasswordChangeCommand = new Command(OnPasswordChange);
@@ -119,8 +113,10 @@ namespace Kung_Fu_Tracker.Views.ViewModels
             PasswordToggleView = false;
             MessagingCenter.Send(this, "ClearPasswordEntries");
         }
-        private void ToggleFrame()
+        private void ToggleFrame(ref bool property, bool value)
         {
+            if (property != value)
+                property = value;
             MessagingCenter.Send(this, "ToggleFrame", passwordToggleView);
         }
     }

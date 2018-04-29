@@ -41,6 +41,9 @@
     <Compile Include="Classes\HelperFunctions.cs" />
     <Compile Include="DataManagement\PatternDBController.cs" />
     <Compile Include="Interfaces\IDeviceHelper.cs" />
+    <Compile Include="Views\DetailViews\Patterns\NewPatternPage.xaml.cs">
+      <DependentUpon>NewPatternPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ViewModels\LoginViewModel.cs" />
     <Compile Include="Views\ViewModels\MasterDetailModel.cs" />
     <Compile Include="Views\ViewModels\MasterPageViewModel.cs" />
@@ -61,16 +64,16 @@
     <Compile Include="Models\Token.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\DetailViews\PatternDetails.xaml.cs">
+    <Compile Include="Views\DetailViews\Patterns\PatternDetails.xaml.cs">
       <DependentUpon>PatternDetails.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DetailViews\Patterns.xaml.cs">
+    <Compile Include="Views\DetailViews\Patterns\Patterns.xaml.cs">
       <DependentUpon>Patterns.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DetailViews\SettingsViews\SettingsHome.xaml.cs">
       <DependentUpon>SettingsHome.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DetailViews\UserInfo.xaml.cs">
+    <Compile Include="Views\DetailViews\UserData\UserInfo.xaml.cs">
       <DependentUpon>UserInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginPage.xaml.cs">
@@ -82,6 +85,7 @@
     <Compile Include="Views\Menu\MasterPage.xaml.cs">
       <DependentUpon>MasterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ViewModels\NewPatternViewModel.cs" />
     <Compile Include="Views\ViewModels\PatternDetailsViewModel.cs" />
     <Compile Include="Views\ViewModels\PatternsViewModel.cs" />
     <Compile Include="Views\ViewModels\SettingsViewModel.cs" />
@@ -146,7 +150,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\DetailViews\UserInfo.xaml">
+    <EmbeddedResource Include="Views\DetailViews\UserData\UserInfo.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -158,7 +162,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\DetailViews\Patterns.xaml">
+    <EmbeddedResource Include="Views\DetailViews\Patterns\Patterns.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -170,7 +174,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\DetailViews\PatternDetails.xaml">
+    <EmbeddedResource Include="Views\DetailViews\Patterns\PatternDetails.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\DetailViews\Patterns\NewPatternPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

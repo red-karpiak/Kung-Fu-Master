@@ -23,6 +23,34 @@ namespace Kung_Fu_Tracker.Views.DetailViews.SettingsViews
         }
         protected override void OnAppearing()
         {
+            SubscribeToMessagingCenterEvents();
+            SubscribeToEntriesOnCompleted();
+            base.OnAppearing();
+        }
+        
+
+        protected override void OnDisappearing()
+        {
+            MessagingCenter.Unsubscribe<SettingsViewModel, bool>(this, "ToggleFrame");
+            MessagingCenter.Unsubscribe<SettingsViewModel, bool>(this, "PasswordChangeError");
+            MessagingCenter.Unsubscribe<SettingsViewModel, bool>(this, "ConfirmPasswordChange");
+            MessagingCenter.Unsubscribe<SettingsViewModel, bool>(this, "ClearPasswordEntries");
+            base.OnDisappearing();
+        }
+        
+        private void SubscribeToEntriesOnCompleted()
+        {
+            changeOldPass.Completed += (object sender, EventArgs e) =>
+            {
+                changeNewPass1.Focus();
+            };
+            changeNewPass1.Completed += (object sender, EventArgs e) =>
+            {
+                changeNewPass2.Focus();
+            };
+        }
+        private void SubscribeToMessagingCenterEvents()
+        {
             //when the user confirms the password change
             MessagingCenter.Subscribe<SettingsViewModel, Dictionary<string, string>>(this, "ConfirmPasswordChange", (sender, dictPasswords) =>
             {
@@ -49,36 +77,12 @@ namespace Kung_Fu_Tracker.Views.DetailViews.SettingsViews
                 }
                 else
                 {
+                    changeOldPass.Focus();
                     alFrameLayout.IsVisible = true;
                     gridSettings.IsEnabled = false;
                     gridSettings.Opacity = 0.25;
                 }
             });
-            base.OnAppearing();
-        }
-        private void EntriesOnCompleted()
-        {
-            changeOldPass.Completed += (object sender, EventArgs e) =>
-            {
-                changeNewPass1.Focus();
-            };
-            changeNewPass1.Completed += (object sender, EventArgs e) =>
-            {
-                changeNewPass2.Focus();
-            };
-            changeNewPass2.Completed += (object sender, EventArgs e) =>
-            {
-                confirmPassChange.Focus();
-            };
-        }
-
-        protected override void OnDisappearing()
-        {
-            MessagingCenter.Unsubscribe<SettingsViewModel, bool>(this, "ToggleFrame");
-            MessagingCenter.Unsubscribe<SettingsViewModel, bool>(this, "PasswordChangeError");
-            MessagingCenter.Unsubscribe<SettingsViewModel, bool>(this, "ConfirmPasswordChange");
-            MessagingCenter.Unsubscribe<SettingsViewModel, bool>(this, "ClearPasswordEntries");
-            base.OnDisappearing();
         }
     }
 }

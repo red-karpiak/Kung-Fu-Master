@@ -2,10 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
-             x:Class="Kung_Fu_Tracker.Views.DetailViews.PatternDetails">
+             x:Class="Kung_Fu_Tracker.Views.DetailViews.PatternDetails"
+             Title="{Binding Rank}">
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="Save" Text="Save" Clicked="Save_Clicked" Order="Secondary"/>
-        <ToolbarItem x:Name="Cancel" Text="Cancel" Clicked="Cancel_Clicked" Order="Secondary" />
+        <ToolbarItem x:Name="New" Text="New" Command="NewCommand" Order="Secondary"/>
+        <ToolbarItem x:Name="Edit" Text="Edit" Command="EditCommand" Order="Secondary"/>
+        <ToolbarItem x:Name="Cancel" Text="Cancel" Command="CancelCommand" Order="Secondary" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
