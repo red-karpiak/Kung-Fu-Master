@@ -56,13 +56,28 @@ namespace Kung_Fu_Tracker.Views.DetailViews.SettingsViews
             });
             base.OnAppearing();
         }
+        private void EntriesOnCompleted()
+        {
+            changeOldPass.Completed += (object sender, EventArgs e) =>
+            {
+                changeNewPass1.Focus();
+            };
+            changeNewPass1.Completed += (object sender, EventArgs e) =>
+            {
+                changeNewPass2.Focus();
+            };
+            changeNewPass2.Completed += (object sender, EventArgs e) =>
+            {
+                confirmPassChange.Focus();
+            };
+        }
 
         protected override void OnDisappearing()
         {
             MessagingCenter.Unsubscribe<SettingsViewModel, bool>(this, "ToggleFrame");
             MessagingCenter.Unsubscribe<SettingsViewModel, bool>(this, "PasswordChangeError");
             MessagingCenter.Unsubscribe<SettingsViewModel, bool>(this, "ConfirmPasswordChange");
-            MessagingCenter.Unsubscribe<SettingsViewModel, bool>(this, "ToggleFrame");
+            MessagingCenter.Unsubscribe<SettingsViewModel, bool>(this, "ClearPasswordEntries");
             base.OnDisappearing();
         }
     }

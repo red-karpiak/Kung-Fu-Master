@@ -36,10 +36,8 @@
                 <Switch Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="1" IsToggled="{Binding SwitchOneOn}"/>
                 <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="1" Text="Switch Two " FontSize="Small"/>
                 <Switch Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="1" IsToggled="{Binding SwitchTwoOn}"/>
-                <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="1" Text="Password"/>
-                <Entry Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" IsPassword="True" IsEnabled="False" Text="{Binding UserPassword}"/>
-                <Button Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" Text="Change Password" FontSize="Small" Command="{Binding PasswordChangeCommand}"/>
-                <Button Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4" Text="Check Connection" FontSize="Small" Command="{Binding CheckConnectionCommand}"/>
+                <Button Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" Text="Change Password" FontSize="Small" Command="{Binding PasswordChangeCommand}"/>
+                <Button Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" Text="Check Connection" FontSize="Small" Command="{Binding CheckConnectionCommand}"/>
             </Grid>
         </StackLayout>
         <AbsoluteLayout x:Name="alFrameLayout" VerticalOptions="Center" HorizontalOptions="Center" TranslationY="{Binding AbsYTranslation}" IsVisible="False">
@@ -63,8 +61,8 @@
                     <Entry x:Name="changeNewPass1" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" IsPassword="True"/>
                     <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="1" Text="Confirm New Password:" FontSize="Small"/>
                     <Entry x:Name="changeNewPass2" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" IsPassword="True"/>
-                    <Button Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Text="OK" FontSize="Small" Command="{Binding ConfirmPasswordChange}"/>
-                    <Button Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Text="Cancel" FontSize="Small" Command="{Binding CancelPasswordChange}"/>
+                    <Button x:Name="confirmPassChange" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Text="OK" FontSize="Small" Command="{Binding ConfirmPasswordChange}"/>
+                    <Button x:Name="cancelPassChange" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Text="Cancel" FontSize="Small" Command="{Binding CancelPasswordChange}"/>
                 </Grid>
             </Frame>
         </AbsoluteLayout>
