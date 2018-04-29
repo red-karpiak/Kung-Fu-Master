@@ -17,7 +17,7 @@
                 </OnPlatform.Android>
             </OnPlatform>
         </StackLayout.Padding>
-        <StackLayout x:Name="gridSettings" VerticalOptions="StartAndExpand" IsEnabled="{Binding IsSettingsPageEnabled}">
+        <StackLayout x:Name="gridSettings" VerticalOptions="StartAndExpand" IsEnabled="True" >
             <Grid VerticalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -42,23 +42,23 @@
                 <Button Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4" Text="Check Connection" FontSize="Small" Command="{Binding CheckConnectionCommand}"/>
             </Grid>
         </StackLayout>
-        <AbsoluteLayout VerticalOptions="Center" HorizontalOptions="Center" TranslationY="{Binding AbsYTranslation}" IsVisible="{Binding IsChangePasswordFrameVisible}" />
-        <Frame x:Name="frameChangePass" VerticalOptions="Center" >
-            <Grid VerticalOptions="Center">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" Text="Old Password:" FontSize="Small"/>
-                <Entry x:Name="changeOldPass" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" IsPassword="True" Text="{Binding UserPassword}"/>
+        <AbsoluteLayout x:Name="alFrameLayout" VerticalOptions="Center" HorizontalOptions="Center" TranslationY="{Binding AbsYTranslation}" IsVisible="False">
+            <Frame x:Name="frameChangePass" VerticalOptions="Center" >
+                <Grid VerticalOptions="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" Text="Old Password:" FontSize="Small"/>
+                    <Entry x:Name="changeOldPass" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" IsPassword="True"/>
                     <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="1" Text="New Password:" FontSize="Small"/>
                     <Entry x:Name="changeNewPass1" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" IsPassword="True"/>
                     <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="1" Text="Confirm New Password:" FontSize="Small"/>
@@ -67,6 +67,6 @@
                     <Button Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Text="Cancel" FontSize="Small" Command="{Binding CancelPasswordChange}"/>
                 </Grid>
             </Frame>
-        
+        </AbsoluteLayout>
     </StackLayout>
 </ContentPage>

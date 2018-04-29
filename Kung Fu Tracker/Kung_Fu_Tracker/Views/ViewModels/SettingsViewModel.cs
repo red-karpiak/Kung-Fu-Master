@@ -1,6 +1,7 @@
 ﻿using Kung_Fu_Tracker.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         #region Variables and Properties
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
         Settings Settings { get; set; }
-        public string UserPassword { get; }
+        public string UserPassword { get; set; }
         private bool switchOneOn;
         public bool SwitchOneOn {
             get { return switchOneOn; }
@@ -45,9 +46,21 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         public ICommand CheckConnectionCommand { get; set; }
         public ICommand ConfirmPasswordChange { get; set; }
         public ICommand CancelPasswordChange { get; set; }
-        public bool IsChangePasswordFrameVisible { get; set; }
-        public bool IsSettingsPageEnabled { get; set; }
-        public List<string> ChangePasswordValues { get; set; }
+        private bool passwordToggleView;
+        public bool PasswordToggleView
+        {
+            get { return passwordToggleView; }
+            set
+            {
+                if (passwordToggleView != value)
+                {
+                    passwordToggleView = value;
+                    ToggleFrame();
+                }
+            }
+            
+        }
+        public Dictionary<string, string> ChangePasswordValues { get; set; }
         #endregion
 
         //use this property to change move the "dialog" up the page.
@@ -60,11 +73,10 @@ namespace Kung_Fu_Tracker.Views.ViewModels
             }
             if (ChangePasswordValues == null)
             {
-                ChangePasswordValues = new List<string>();
+                ChangePasswordValues = new Dictionary<string, string>();
             }
 
-            IsChangePasswordFrameVisible = false;
-            IsSettingsPageEnabled = true;
+            PasswordToggleView = false;
 
             AbsYTranslation = -((int)App.DisplayScreenHeight / 4);
 
@@ -79,8 +91,7 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         }
         public void OnPasswordChange()
         {
-            IsSettingsPageEnabled = false;
-            IsChangePasswordFrameVisible = true;
+            PasswordToggleView = true;
         }
         public void OnCheckConnection()
         {
@@ -88,15 +99,29 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         }
         public void OnConfirmPasswordChange()
         {
+            PasswordToggleView = false;
             MessagingCenter.Send(this, "ConfirmPasswordChange", ChangePasswordValues);
-            IsSettingsPageEnabled = true;
-            IsChangePasswordFrameVisible = false;
+            MessagingCenter.Send(this, "ClearPasswordEntries");
+            if (!ChangePasswordValues["OldPass"].Equals(UserPassword))
+            {
+                MessagingCenter.Send(this, "PasswordChangeError", "Incorrect Password");
+                return;
+            }
+            if (!ChangePasswordValues["NewPass1"].Equals(ChangePasswordValues["NewPass2"]))
+            {
+                MessagingCenter.Send(this, "PasswordChangeError", "New Passwords Must Match");
+                return;
+            }
+            App.LoggedInUser.Password = UserPassword = ChangePasswordValues["NewPass1"];
         }
         public void OnCancelPasswordChange()
         {
-            IsSettingsPageEnabled = true;
-            IsChangePasswordFrameVisible = false;
-            MessagingCenter.Send(this, "CancelPasswordChange");
+            PasswordToggleView = false;
+            MessagingCenter.Send(this, "ClearPasswordEntries");
+        }
+        private void ToggleFrame()
+        {
+            MessagingCenter.Send(this, "ToggleFrame", passwordToggleView);
         }
     }
 }
