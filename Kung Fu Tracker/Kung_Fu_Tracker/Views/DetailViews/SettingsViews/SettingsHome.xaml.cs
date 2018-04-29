@@ -22,7 +22,19 @@ namespace Kung_Fu_Tracker.Views.DetailViews.SettingsViews
         }
         protected override void OnAppearing()
         {
-            MessagingCenter.Subscribe<SettingsViewModel, >
+            //when the user confirms the password change
+            MessagingCenter.Subscribe<SettingsViewModel, List<string>>(this, "ConfirmPasswordChange", (sender, listOfPasswords) =>
+            {
+                listOfPasswords.Add(changeOldPass.Text);
+                listOfPasswords.Add(changeNewPass1.Text);
+                listOfPasswords.Add(changeNewPass2.Text);
+            });
+
+            //when there is an error with the password change
+            MessagingCenter.Subscribe<SettingsViewModel, string>(this, "PasswordChangeError", (sender, errorMessage) =>
+            {
+
+            });
 
             base.OnAppearing();
         }

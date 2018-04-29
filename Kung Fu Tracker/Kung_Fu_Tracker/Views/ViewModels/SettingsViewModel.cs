@@ -14,7 +14,7 @@ namespace Kung_Fu_Tracker.Views.ViewModels
     {
         #region Variables and Properties
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
-        Settings settings { get; set; }
+        Settings Settings { get; set; }
         public string UserPassword { get; }
         private bool switchOneOn;
         public bool SwitchOneOn {
@@ -24,7 +24,7 @@ namespace Kung_Fu_Tracker.Views.ViewModels
                 if (switchOneOn != value)
                 {
                     switchOneOn = value;
-                    settings.Switch1 = switchOneOn;
+                    Settings.Switch1 = switchOneOn;
                 }
             }
         }
@@ -37,7 +37,7 @@ namespace Kung_Fu_Tracker.Views.ViewModels
                 if (switchTwoOn != value)
                 {
                     switchTwoOn = value;
-                    settings.Switch2 = switchTwoOn;
+                    Settings.Switch2 = switchTwoOn;
                 }
             }
         }
@@ -47,25 +47,26 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         public ICommand CancelPasswordChange { get; set; }
         public bool IsChangePasswordFrameVisible { get; set; }
         public bool IsSettingsPageEnabled { get; set; }
+        public List<string> ChangePasswordValues { get; set; }
         #endregion
 
         //use this property to change move the "dialog" up the page.
-        public int AbsYTranslation
-        {
-            get
-            {
-                return -((int)App.DisplayScreenHeight / 4);
-            }
-        }
+        public int AbsYTranslation { get; set; }
         public SettingsViewModel()
         {
-            if (settings == null)
+            if (Settings == null)
             {
-                settings = new Settings();
+                Settings = new Settings();
+            }
+            if (ChangePasswordValues == null)
+            {
+                ChangePasswordValues = new List<string>();
             }
 
             IsChangePasswordFrameVisible = false;
             IsSettingsPageEnabled = true;
+
+            AbsYTranslation = -((int)App.DisplayScreenHeight / 4);
 
             //all commands to subscribe to
             PasswordChangeCommand = new Command(OnPasswordChange);
@@ -78,7 +79,8 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         }
         public void OnPasswordChange()
         {
-            MessagingCenter.Send(this, "PasswordChange", UserPassword);
+            IsSettingsPageEnabled = false;
+            IsChangePasswordFrameVisible = true;
         }
         public void OnCheckConnection()
         {
@@ -86,10 +88,14 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         }
         public void OnConfirmPasswordChange()
         {
-            MessagingCenter.Send(this, "ConfirmPasswordChange");
+            MessagingCenter.Send(this, "ConfirmPasswordChange", ChangePasswordValues);
+            IsSettingsPageEnabled = true;
+            IsChangePasswordFrameVisible = false;
         }
         public void OnCancelPasswordChange()
         {
+            IsSettingsPageEnabled = true;
+            IsChangePasswordFrameVisible = false;
             MessagingCenter.Send(this, "CancelPasswordChange");
         }
     }
