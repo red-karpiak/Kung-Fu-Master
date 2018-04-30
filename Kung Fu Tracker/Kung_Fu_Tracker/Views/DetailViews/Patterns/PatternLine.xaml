@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kung_Fu_Tracker.Views.DetailViews.Patterns.NewPatternPage"
+             Title="{Binding Rank}">
+    <ContentPage.Content>
+        <StackLayout x:Name="StackLayout" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" Text="Order:" FontSize="Small" VerticalTextAlignment="Center" Margin="{Binding TextMargin}"/>
+                <Stepper x:Name="orderStepper"  Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" Value="1" />
+                <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="1" Text="Feet:" FontSize="Small" VerticalTextAlignment="Center" Margin="{Binding TextMargin}"/>
+                <Entry x:Name="feetEntry" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" />
+                <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="1" Text="Hands:" FontSize="Small" VerticalTextAlignment="Center" Margin="{Binding TextMargin}"/>
+                <Entry x:Name="handsEntry" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

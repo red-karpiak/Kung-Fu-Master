@@ -13,12 +13,12 @@ namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class NewPatternPage : ContentPage
 	{
-        public NewPatternViewModel NewPatternViewModel { get; set; }
-        public NewPatternPage ()
+        public PatternLineViewModel PatternLineViewModel { get; set; }
+        public NewPatternPage (string Rank)
 		{
 			InitializeComponent();
-            NewPatternViewModel = new NewPatternViewModel();
-            this.BindingContext = NewPatternViewModel;
+            PatternLineViewModel = new PatternLineViewModel(Rank);
+            this.BindingContext = PatternLineViewModel;
 		}
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using Kung_Fu_Tracker.DataManagement;
+using Kung_Fu_Tracker.Models;
 using Kung_Fu_Tracker.Views.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,11 @@ namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
         {
             MessagingCenter.Subscribe<PatternDetailsViewModel, string>(this, "NewPattern", (sender, rank) =>
             {
-
+                //navigate to pattern page
+            });
+            MessagingCenter.Subscribe<PatternDetailsViewModel, Pattern>(this, "EditPattern", (sender, pattern) =>
+            {
+                //navigate to pattern details page
             });
             base.OnAppearing();
         }
