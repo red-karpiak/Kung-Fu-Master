@@ -39,6 +39,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\HelperFunctions.cs" />
+    <Compile Include="DataManagement\IDatabaseFetcher.cs" />
     <Compile Include="DataManagement\PatternDBController.cs" />
     <Compile Include="Interfaces\IDeviceHelper.cs" />
     <Compile Include="Views\DetailViews\Patterns\NewPatternPage.xaml.cs">

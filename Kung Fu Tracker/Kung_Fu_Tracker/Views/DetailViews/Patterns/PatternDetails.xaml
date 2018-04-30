@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
-             x:Class="Kung_Fu_Tracker.Views.DetailViews.PatternDetails"
+             x:Class="Kung_Fu_Tracker.Views.DetailViews.Patterns.PatternDetails"
              Title="{Binding Rank}">
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="New" Text="New" Command="NewCommand" Order="Secondary"/>

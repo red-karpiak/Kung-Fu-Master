@@ -1,4 +1,4 @@
-﻿using Kung_Fu_Tracker.DataManagement;
+﻿using Kung_Fu_Tracker.Models;
 using Kung_Fu_Tracker.Views.DetailViews;
 using System;
 using System.Collections.Generic;

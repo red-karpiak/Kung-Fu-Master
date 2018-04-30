@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SQLite;
 
-namespace Kung_Fu_Tracker.DataManagement
+namespace Kung_Fu_Tracker.Models
 {
     public class Pattern
     {

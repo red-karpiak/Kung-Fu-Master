@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Kung_Fu_Tracker.Views.DetailViews
+namespace Kung_Fu_Tracker.Views.DetailViews.UserData
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserInfo : ContentPage

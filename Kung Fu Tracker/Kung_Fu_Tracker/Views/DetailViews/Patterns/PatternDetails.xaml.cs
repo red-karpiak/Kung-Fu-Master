@@ -9,7 +9,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Kung_Fu_Tracker.Views.DetailViews
+namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PatternDetails : ContentPage
