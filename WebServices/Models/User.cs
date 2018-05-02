@@ -8,6 +8,7 @@ namespace Kung_Fu_Tracker.Models
 {
     public class User
     {
+        //Entity framework assumes that the Id is the primary key simply by calling it "Id"
         public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
