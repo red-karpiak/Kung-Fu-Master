@@ -56,7 +56,7 @@
     <Compile Include="Interfaces\INetworkConnection.cs" />
     <Compile Include="Interfaces\ISQLite.cs" />
     <Compile Include="Interfaces\IUIElements.cs" />
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Constants.cs" />
@@ -93,7 +93,7 @@
     <Compile Include="Views\ViewModels\UserInfoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MainPage.xaml">
+    <EmbeddedResource Include="Views\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
