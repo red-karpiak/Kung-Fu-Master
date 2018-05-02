@@ -1,4 +1,4 @@
-﻿using Kung_Fu_Tracker.DataManagement;
+﻿using Kung_Fu_Tracker.Models;
 using Kung_Fu_Tracker.Views.DetailViews;
 using System;
 using System.Collections.Generic;
@@ -18,6 +18,7 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         public ObservableCollection<Pattern> Patterns { get; set; }
         public Pattern SelectedItem { get; set; }
         public ICommand RefreshCommand { get; set; }
+        public ICommand DeleteCommand { get; set; }
         public ICommand NewCommand { get; set; }
         public ICommand CancelCommand { get; set; }
         public ICommand EditCommand { get; set; }
@@ -26,7 +27,8 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         {
             Rank = rank;
             InitGrid(Rank);
-            RefreshCommand = new Command(CmdRefresh);
+            RefreshCommand = new Command(OnRefreshCommand);
+            DeleteCommand = new Command(OnDeleteCommand);
             NewCommand = new Command(OnNewCommand);
             CancelCommand = new Command(OnCancelCommand);
             EditCommand = new Command(OnEditCommand);
@@ -43,7 +45,7 @@ namespace Kung_Fu_Tracker.Views.ViewModels
                 new Pattern("White", 5, "step back to R: cat stance", "L: chamber\nR: fist to L shoulder")
             };
         }
-        private async void CmdRefresh()
+        private async void OnRefreshCommand()
         {
             IsRefreshing = true;
             await Task.Delay(1000);
@@ -55,6 +57,10 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         }
         private void OnCancelCommand() { }
         private void OnEditCommand()
+        {
+
+        }
+        private void OnDeleteCommand()
         {
 
         }

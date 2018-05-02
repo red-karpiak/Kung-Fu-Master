@@ -1,4 +1,5 @@
 ﻿using Kung_Fu_Tracker.DataManagement;
+using Kung_Fu_Tracker.Models;
 using Kung_Fu_Tracker.Views.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Kung_Fu_Tracker.Views.DetailViews
+namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PatternDetails : ContentPage
@@ -25,7 +26,11 @@ namespace Kung_Fu_Tracker.Views.DetailViews
         {
             MessagingCenter.Subscribe<PatternDetailsViewModel, string>(this, "NewPattern", (sender, rank) =>
             {
-
+                //navigate to pattern page
+            });
+            MessagingCenter.Subscribe<PatternDetailsViewModel, Pattern>(this, "EditPattern", (sender, pattern) =>
+            {
+                //navigate to pattern details page
             });
             base.OnAppearing();
         }

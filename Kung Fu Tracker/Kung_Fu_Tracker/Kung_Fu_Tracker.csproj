@@ -39,10 +39,11 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\HelperFunctions.cs" />
+    <Compile Include="DataManagement\IDatabaseFetcher.cs" />
     <Compile Include="DataManagement\PatternDBController.cs" />
     <Compile Include="Interfaces\IDeviceHelper.cs" />
-    <Compile Include="Views\DetailViews\Patterns\NewPatternPage.xaml.cs">
-      <DependentUpon>NewPatternPage.xaml</DependentUpon>
+    <Compile Include="Views\DetailViews\Patterns\PatternLine.xaml.cs">
+      <DependentUpon>PatternLine.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewModels\LoginViewModel.cs" />
     <Compile Include="Views\ViewModels\MasterDetailModel.cs" />
@@ -85,7 +86,7 @@
     <Compile Include="Views\Menu\MasterPage.xaml.cs">
       <DependentUpon>MasterPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewModels\NewPatternViewModel.cs" />
+    <Compile Include="Views\ViewModels\PatternLineViewModel.cs" />
     <Compile Include="Views\ViewModels\PatternDetailsViewModel.cs" />
     <Compile Include="Views\ViewModels\PatternsViewModel.cs" />
     <Compile Include="Views\ViewModels\SettingsViewModel.cs" />
@@ -180,7 +181,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\DetailViews\Patterns\NewPatternPage.xaml">
+    <EmbeddedResource Include="Views\DetailViews\Patterns\PatternLine.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

@@ -19,8 +19,13 @@ namespace Kung_Fu_Tracker.Models
         {
             Username = name;
             Password = pass;
-            Rank = "Purple";
-            Stripes = 0;
+        }
+        public User(string name, string pass, string rank, byte stripes)
+        {
+            Username = name;
+            Password = pass;
+            Rank = rank;
+            Stripes = stripes;
         }
         public bool CheckInformation()
         {
