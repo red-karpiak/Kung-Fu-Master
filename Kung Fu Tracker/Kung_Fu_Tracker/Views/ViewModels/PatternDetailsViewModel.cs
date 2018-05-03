@@ -35,15 +35,15 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         }
         public void InitGrid(string rank)
         {
-            //TODO: pull the pattern steps from the db. Hardcoding for testing purposes.
-            Patterns = new ObservableCollection<Pattern>
-            {
-                new Pattern("White", 1, "L: front stance", "L: low block\nR: chamber"),
-                new Pattern("White", 2, "R: front stance", "L: chamber\nR: Front punch"),
-                new Pattern("White", 3, "L: front kick", "L: chamber\nR: Palm to chest"),
-                new Pattern("White", 4, "R: front stance", "L: chamber\nR: low block"),
-                new Pattern("White", 5, "step back to R: cat stance", "L: chamber\nR: fist to L shoulder")
-            };
+            
+            //Patterns = new ObservableCollection<Pattern>
+            //{
+            //    new Pattern("White", 1, "L: front stance", "L: low block\nR: chamber"),
+            //    new Pattern("White", 2, "R: front stance", "L: chamber\nR: Front punch"),
+            //    new Pattern("White", 3, "L: front kick", "L: chamber\nR: Palm to chest"),
+            //    new Pattern("White", 4, "R: front stance", "L: chamber\nR: low block"),
+            //    new Pattern("White", 5, "step back to R: cat stance", "L: chamber\nR: fist to L shoulder")
+            //};
         }
         private async void OnRefreshCommand()
         {

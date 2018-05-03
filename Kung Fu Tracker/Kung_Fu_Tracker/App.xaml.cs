@@ -4,6 +4,7 @@ using Kung_Fu_Tracker.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace Kung_Fu_Tracker
         private static Page currentPage;
         private static Timer timer;
         private static bool noInterShow;
+        public static HttpClient client;
 
         public static double DisplayScreenWidth;
         public static double DisplayScreenHeight;
@@ -34,7 +36,7 @@ namespace Kung_Fu_Tracker
         public App()
         {
             InitializeComponent();
-
+            client = new HttpClient();
             MainPage = new Views.LoginPage();
         }
 
