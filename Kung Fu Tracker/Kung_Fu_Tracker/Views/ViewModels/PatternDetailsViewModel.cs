@@ -1,10 +1,12 @@
 ﻿using Kung_Fu_Tracker.Models;
+using Kung_Fu_Tracker.Services;
 using Kung_Fu_Tracker.Views.DetailViews;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -12,17 +14,28 @@ using Xamarin.Forms;
 
 namespace Kung_Fu_Tracker.Views.ViewModels
 {
-    public class PatternDetailsViewModel
+    public class PatternDetailsViewModel : INotifyPropertyChanged
     {
+
         public string Rank { get; set; }
-        public ObservableCollection<Pattern> Patterns { get; set; }
-        public Pattern SelectedItem { get; set; }
+        public ObservableCollection<PatternLine> patternLines;
+        public ObservableCollection<PatternLine> PatternLines
+        {
+            get { return patternLines; }
+            set
+            {
+                patternLines = value;
+                OnPropertyChanged();
+            }
+        }
+        public PatternLine SelectedItem { get; set; }
         public ICommand RefreshCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
         public ICommand NewCommand { get; set; }
         public ICommand CancelCommand { get; set; }
         public ICommand EditCommand { get; set; }
         public bool IsRefreshing { get; set; }
+        
         public PatternDetailsViewModel(string rank)
         {
             Rank = rank;
@@ -33,9 +46,15 @@ namespace Kung_Fu_Tracker.Views.ViewModels
             CancelCommand = new Command(OnCancelCommand);
             EditCommand = new Command(OnEditCommand);
         }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         public void InitGrid(string rank)
         {
-            
+            var patternLineServices = new PatternLineService();
+            PatternLines = patternLineServices.GetPatternLines();
             //Patterns = new ObservableCollection<Pattern>
             //{
             //    new Pattern("White", 1, "L: front stance", "L: low block\nR: chamber"),

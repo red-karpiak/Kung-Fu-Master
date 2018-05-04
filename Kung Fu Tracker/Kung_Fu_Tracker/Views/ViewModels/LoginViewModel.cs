@@ -40,25 +40,25 @@ namespace Kung_Fu_Tracker.Views.ViewModels
 
             if (App.LoggedInUser.CheckInformation())
             {
-                if (App.SettingsDatabase.GetSettings() == null)
-                {
-                    Settings settings = new Settings();
-                    App.SettingsDatabase.SaveSettings(settings);
-                }
-                //var result = await App.RestService.Login(user);
-                var result = new Token(); //dummy token for testing purposes
-                // if (result.accessToken != null)
-                if (result != null)
-                {
+                //if (App.SettingsDatabase.GetSettings() == null)
+                //{
+                //    Settings settings = new Settings();
+                //    App.SettingsDatabase.SaveSettings(settings);
+                //}
+                ////var result = await App.RestService.Login(user);
+                //var result = new Token(); //dummy token for testing purposes
+                //// if (result.accessToken != null)
+                //if (result != null)
+                //{
                     //activitySpinner.IsVisible = false;
                     //App.UserDatabase.SaveUser(user);
                     //App.TokenDatabase.SaveToken(result);
-                    App.LoggedIn = true;
-                    if (Device.RuntimePlatform == Device.Android)
-                    {
-                        Application.Current.MainPage = new MasterDetail();
-                    }
+                App.LoggedIn = true;
+                if (Device.RuntimePlatform == Device.Android)
+                {
+                    Application.Current.MainPage = new MasterDetail();
                 }
+                
             }
         }
     }
