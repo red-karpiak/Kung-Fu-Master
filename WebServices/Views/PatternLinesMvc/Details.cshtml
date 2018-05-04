@@ -1,0 +1,58 @@
+﻿@model Kung_Fu_Tracker.Models.PatternLine
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PatternLine</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Rank)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rank)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Order)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Feet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Feet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LeftHand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeftHand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RightHand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RightHand)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

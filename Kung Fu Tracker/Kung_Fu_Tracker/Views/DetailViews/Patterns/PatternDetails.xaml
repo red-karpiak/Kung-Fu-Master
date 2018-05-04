@@ -23,8 +23,9 @@
                 </dg:DataGrid.HeaderFontSize>
                 <dg:DataGrid.Columns>
                     <dg:DataGridColumn Title="#" PropertyName="Order" Width="30" />
-                    <dg:DataGridColumn Title="Feet" PropertyName="Feet" Width="2*" />
-                    <dg:DataGridColumn Title="Hands" PropertyName="Hands" Width="2*" />
+                    <dg:DataGridColumn Title="Feet" PropertyName="Feet" Width="3*" />
+                    <dg:DataGridColumn Title="L-H" PropertyName="LeftHand" Width="3*" />
+                    <dg:DataGridColumn Title="R-H" PropertyName="RightHand" Width="3*" />
                 </dg:DataGrid.Columns>
                 <dg:DataGrid.RowsBackgroundColorPalette>
                     <dg:PaletteCollection>

@@ -1,0 +1,64 @@
+﻿@model Kung_Fu_Tracker.Models.PatternLine
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PatternLine</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Rank)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rank)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Order)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Feet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Feet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LeftHand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeftHand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RightHand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RightHand)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
