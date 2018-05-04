@@ -177,7 +177,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Databasing\DatabaseFetcher.cs" />
-    <Compile Include="Databasing\NetworkConnection.cs" />
     <Compile Include="Databasing\SQLiteAndroid.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -204,12 +203,6 @@
     <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Kung_Fu_Tracker\Kung_Fu_Tracker.csproj">
-      <Project>{be6db85b-e9d0-4834-aa1d-d1a4070a31f0}</Project>
-      <Name>Kung_Fu_Tracker</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\LoginIcon.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +210,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kung_Fu_Tracker\Kung_Fu_Tracker.csproj">
+      <Project>{0C790CC0-0D57-42A7-8F8D-59F6966059B1}</Project>
+      <Name>Kung_Fu_Tracker</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

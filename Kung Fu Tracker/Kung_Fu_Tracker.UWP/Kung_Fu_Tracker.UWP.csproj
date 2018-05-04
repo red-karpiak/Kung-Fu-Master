@@ -151,12 +151,6 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Kung_Fu_Tracker\Kung_Fu_Tracker.csproj">
-      <Project>{be6db85b-e9d0-4834-aa1d-d1a4070a31f0}</Project>
-      <Name>Kung_Fu_Tracker</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

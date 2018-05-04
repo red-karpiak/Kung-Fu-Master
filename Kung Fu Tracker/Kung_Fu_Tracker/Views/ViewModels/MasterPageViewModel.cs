@@ -1,6 +1,7 @@
 ﻿using Kung_Fu_Tracker.Models;
-using Kung_Fu_Tracker.Views.DetailViews;
+using Kung_Fu_Tracker.Views.DetailViews.Patterns;
 using Kung_Fu_Tracker.Views.DetailViews.SettingsViews;
+using Kung_Fu_Tracker.Views.DetailViews.UserData;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

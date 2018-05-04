@@ -1,4 +1,5 @@
 ﻿using Kung_Fu_Tracker.Interfaces;
+using Kung_Fu_Tracker.Models;
 using SQLite;
 using System;
 using System.Collections.Generic;

@@ -53,7 +53,6 @@
     <Compile Include="DataManagement\SettingsDBController.cs" />
     <Compile Include="DataManagement\TokenDBController.cs" />
     <Compile Include="DataManagement\UserDBController.cs" />
-    <Compile Include="Interfaces\INetworkConnection.cs" />
     <Compile Include="Interfaces\ISQLite.cs" />
     <Compile Include="Interfaces\IUIElements.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
