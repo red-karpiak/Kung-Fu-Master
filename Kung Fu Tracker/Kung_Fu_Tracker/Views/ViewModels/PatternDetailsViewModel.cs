@@ -1,5 +1,4 @@
 ﻿using Kung_Fu_Tracker.Models;
-using Kung_Fu_Tracker.Services;
 using Kung_Fu_Tracker.Views.DetailViews;
 using System;
 using System.Collections.Generic;
@@ -18,8 +17,8 @@ namespace Kung_Fu_Tracker.Views.ViewModels
     {
 
         public string Rank { get; set; }
-        public ObservableCollection<PatternLine> patternLines;
-        public ObservableCollection<PatternLine> PatternLines
+        public List<PatternLine> patternLines;
+        public List<PatternLine> PatternLines
         {
             get { return patternLines; }
             set
@@ -51,10 +50,9 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        public void InitGrid(string rank)
+        private void InitGrid(string rank)
         {
-            var patternLineServices = new PatternLineService();
-            PatternLines = patternLineServices.GetPatternLines();
+           // PatternLines = await patternLineServices.GetPatternLines();
             //Patterns = new ObservableCollection<Pattern>
             //{
             //    new Pattern("White", 1, "L: front stance", "L: low block\nR: chamber"),

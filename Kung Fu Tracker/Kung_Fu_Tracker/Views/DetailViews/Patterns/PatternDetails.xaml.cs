@@ -26,11 +26,11 @@ namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
         {
             MessagingCenter.Subscribe<PatternDetailsViewModel, string>(this, "NewPattern", (sender, rank) =>
             {
-                //navigate to pattern page
+                //navigate to pattern line page
             });
             MessagingCenter.Subscribe<PatternDetailsViewModel, Pattern>(this, "EditPattern", (sender, pattern) =>
             {
-                //navigate to pattern details page
+                //navigate to pattern line page to edit
             });
             base.OnAppearing();
         }
