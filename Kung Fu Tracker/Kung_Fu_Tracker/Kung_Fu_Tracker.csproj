@@ -40,6 +40,7 @@
     </Compile>
     <Compile Include="Classes\HelperFunctions.cs" />
     <Compile Include="DataManagement\IDatabaseFetcher.cs" />
+    <Compile Include="DataManagement\IRestService.cs" />
     <Compile Include="DataManagement\RestService.cs" />
     <Compile Include="Interfaces\IDeviceHelper.cs" />
     <Compile Include="Models\PatternLine.cs" />

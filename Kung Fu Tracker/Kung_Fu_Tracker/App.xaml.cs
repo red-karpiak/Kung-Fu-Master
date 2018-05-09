@@ -20,7 +20,7 @@ namespace Kung_Fu_Tracker
         private static Page currentPage;
         private static Timer timer;
         private static bool noInterShow;
-        public static HttpClient client;
+        public static RestService restService;
 
         public static double DisplayScreenWidth;
         public static double DisplayScreenHeight;
@@ -31,7 +31,6 @@ namespace Kung_Fu_Tracker
         public App()
         {
             InitializeComponent();
-            client = new HttpClient();
             MainPage = new Views.LoginPage();
         }
 

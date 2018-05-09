@@ -25,7 +25,7 @@ namespace Kung_Fu_Tracker.Models
         //other colors: 726F72, E9D9D9, 666265
 
         //Login
-        public static string weburl = "https://localhost/api/Auth/Login";
+        public static string weburl = "";
         public static string noInternetText = "No Internet connection available";
         public static string yesInternetText = "";
         public static string settingsTitleText = "Settings";

@@ -1,4 +1,5 @@
-﻿using Kung_Fu_Tracker.Models;
+﻿using Kung_Fu_Tracker.DataManagement;
+using Kung_Fu_Tracker.Models;
 using Kung_Fu_Tracker.Views.DetailViews;
 using System;
 using System.Collections.Generic;
@@ -34,11 +35,13 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         public ICommand CancelCommand { get; set; }
         public ICommand EditCommand { get; set; }
         public bool IsRefreshing { get; set; }
+        string data { get; set; }
         
         public PatternDetailsViewModel(string rank)
         {
             Rank = rank;
             InitGrid(Rank);
+
             RefreshCommand = new Command(OnRefreshCommand);
             DeleteCommand = new Command(OnDeleteCommand);
             NewCommand = new Command(OnNewCommand);
@@ -50,9 +53,10 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        private void InitGrid(string rank)
+        private async void InitGrid(string rank)
         {
-           // PatternLines = await patternLineServices.GetPatternLines();
+            data = await App.restService.GetData();
+            //PatternLines = await App.restService.GetData();
             //Patterns = new ObservableCollection<Pattern>
             //{
             //    new Pattern("White", 1, "L: front stance", "L: low block\nR: chamber"),

@@ -8,6 +8,7 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using Kung_Fu_Tracker.Views.Menu;
 using Kung_Fu_Tracker.Models;
+using Kung_Fu_Tracker.DataManagement;
 
 namespace Kung_Fu_Tracker.Views.ViewModels
 {
@@ -54,6 +55,8 @@ namespace Kung_Fu_Tracker.Views.ViewModels
                     //App.UserDatabase.SaveUser(user);
                     //App.TokenDatabase.SaveToken(result);
                 App.LoggedIn = true;
+
+                App.restService = new RestService();
                 if (Device.RuntimePlatform == Device.Android)
                 {
                     Application.Current.MainPage = new MasterDetail();
