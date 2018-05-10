@@ -12,37 +12,32 @@ namespace Kung_Fu_Tracker.Views.ViewModels
     public class PatternLineViewModel
     {
         public Thickness TextMargin { get; set; }
-        public ICommand ModifyOrInsert { get; set; }
-        public Pattern Pattern { get; set; }
+        public ICommand SaveCommand { get; set; }
+        public ICommand CancelCommand { get; set; }
+        public PatternLine Line { get; set; }
         public string Rank { get; set; }
         
-        public PatternLineViewModel(string rank)
+        public PatternLineViewModel(PatternLine patternLine)
         {
-            Rank = rank;
-            Init();
-        }
-        public PatternLineViewModel(Pattern pattern)
-        {
-            Pattern = pattern;
+            Rank = patternLine.Rank;
+            Line = patternLine;
             Init();
         }
         private void Init()
         {
-            if (Pattern == null)
-            {
-                Pattern = new Pattern
-                {
-                    Rank = Rank
-                };
-            }
             TextMargin = new Thickness(10, 0, 0, 0);
 
-            ModifyOrInsert = new Command(OnModifyOrInsert);
+            SaveCommand = new Command(OnSaveCommand);
+            CancelCommand = new Command(OnCancelCommand);
         }
-        public void OnModifyOrInsert()
+        public void OnSaveCommand()
         {
             //need to make a call to the sql connection to modify/insert the line
             
+        }
+        public void OnCancelCommand()
+        {
+            //don't save
         }
     }
 }

@@ -44,8 +44,8 @@
     <Compile Include="DataManagement\RestService.cs" />
     <Compile Include="Interfaces\IDeviceHelper.cs" />
     <Compile Include="Models\PatternLine.cs" />
-    <Compile Include="Views\DetailViews\Patterns\PatternLine.xaml.cs">
-      <DependentUpon>PatternLine.xaml</DependentUpon>
+    <Compile Include="Views\DetailViews\Patterns\PatternLinePage.xaml.cs">
+      <DependentUpon>PatternLinePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewModels\LoginViewModel.cs" />
     <Compile Include="Views\ViewModels\MasterDetailModel.cs" />
@@ -184,7 +184,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\DetailViews\Patterns\PatternLine.xaml">
+    <EmbeddedResource Include="Views\DetailViews\Patterns\PatternLinePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

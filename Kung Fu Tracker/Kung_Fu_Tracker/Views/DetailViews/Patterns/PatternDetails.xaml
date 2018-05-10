@@ -12,7 +12,7 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <dg:DataGrid ItemsSource="{Binding PatternLines}" SelectionEnabled="True" SelectedItem="{Binding SelectedItem}"
+            <dg:DataGrid x:Name="datagrid" ItemsSource="{Binding PatternLines}" SelectionEnabled="True" SelectedItem="{Binding SelectedItem}"
                          RowHeight="70" HeaderHeight="50" BorderColor="#CCCCCC" HeaderBackground="#E0E6F8" 
                          PullToRefreshCommand="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}" ActiveRowColor="#8899AA">
                 <dg:DataGrid.HeaderFontSize>
