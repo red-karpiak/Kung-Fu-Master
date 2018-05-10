@@ -1,6 +1,7 @@
 ﻿using Kung_Fu_Tracker.DataManagement;
 using Kung_Fu_Tracker.Models;
 using Kung_Fu_Tracker.Views.DetailViews;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,6 +26,7 @@ namespace Kung_Fu_Tracker.Views.ViewModels
             set
             {
                 patternLines = value;
+                OnPropertyChanged();
             }
         }
         public PatternLine SelectedItem { get; set; }
@@ -34,6 +36,7 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         public ICommand CancelCommand { get; set; }
         public ICommand EditCommand { get; set; }
         public bool IsRefreshing { get; set; }
+        public string content { get; set; }
         
         public PatternDetailsViewModel(string rank)
         {
@@ -53,7 +56,9 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         }
         private async void InitGrid(string rank)
         {
-            PatternLines = await App.restService.GetData();
+            content = await App.restService.GetData();
+            System.Diagnostics.Debug.WriteLine("\n\n\nContent:" + content + "\n\n\n");
+            PatternLines = JsonConvert.DeserializeObject<List<PatternLine>>(content);
         }
         private async void OnRefreshCommand()
         {
@@ -63,7 +68,11 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         }
         private void OnNewCommand() { }
         private void OnCancelCommand() { }
-        private void OnEditCommand() { }
+        private void OnEditCommand()
+        {
+            System.Diagnostics.Debug.WriteLine("\n\n\n" + SelectedItem.Feet + "\n\n\n");
+            MessagingCenter.Send(this, "EditLine", SelectedItem);
+        }
         private void OnDeleteCommand() { }
 
     }

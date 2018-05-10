@@ -5,10 +5,10 @@
              x:Class="Kung_Fu_Tracker.Views.DetailViews.Patterns.PatternDetails"
              Title="{Binding Rank}">
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="New" Text="New" Command="NewCommand" Order="Secondary"/>
-        <ToolbarItem x:Name="Edit" Text="Edit" Command="EditCommand" Order="Secondary"/>
-        <ToolbarItem x:Name="Delete" Text="Delete" Command="DeleteCommand" Order="Secondary"/>
-        <ToolbarItem x:Name="Cancel" Text="Cancel" Command="CancelCommand" Order="Secondary" />
+        <ToolbarItem x:Name="New" Text="New" Command="{Binding NewCommand}" Order="Secondary"/>
+        <ToolbarItem x:Name="Edit" Text="Edit" Command="{Binding EditCommand}" Order="Secondary"/>
+        <ToolbarItem x:Name="Delete" Text="Delete" Command="{Binding DeleteCommand}" Order="Secondary"/>
+        <ToolbarItem x:Name="Cancel" Text="Cancel" Order="Secondary" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>

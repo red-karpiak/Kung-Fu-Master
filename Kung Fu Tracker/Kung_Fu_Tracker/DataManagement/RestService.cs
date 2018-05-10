@@ -31,7 +31,7 @@ namespace Kung_Fu_Tracker.DataManagement
             client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", authenticationHeaderValue);
         }
 
-        public async Task<List<PatternLine>> GetData()
+        public async Task<string> GetData()
         {
             PatternLines = new List<PatternLine>();
 
@@ -44,8 +44,6 @@ namespace Kung_Fu_Tracker.DataManagement
                 if (response.IsSuccessStatusCode)
                 {
                     content = await response.Content.ReadAsStringAsync();
-
-                    PatternLines = JsonConvert.DeserializeObject<List<PatternLine>>(content);
                 }
                 else
                 {
@@ -56,8 +54,7 @@ namespace Kung_Fu_Tracker.DataManagement
             {
                 Debug.WriteLine("\n\n\n" + e.Message + "\n\n\n");
             }
-            Debug.WriteLine("\n\n\nContent:" + content + "\n\n\n");
-            return PatternLines;
+            return content;
         }
 
         public async Task SavePatternLine(PatternLine line, bool isNewLine = false)
