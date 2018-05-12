@@ -15,6 +15,7 @@ namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
 	public partial class PatternLinePage : ContentPage
 	{
         public PatternLineViewModel PatternLineViewModel { get; set; }
+        private int navStackCount { get; set; }
         public PatternLinePage (PatternLine line)
 		{
 			InitializeComponent();
@@ -23,6 +24,7 @@ namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
 		}
         protected override void OnAppearing()
         {
+            Navigation.NavigationStack.Count();
            /* MessagingCenter.Subscribe<PatternDetailsViewModel, string>(this, "Save", (sender, rank) =>
             {
                 //save pattern

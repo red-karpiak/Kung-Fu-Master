@@ -16,6 +16,7 @@ namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
     public partial class PatternDetails : ContentPage
     {
         public PatternDetailsViewModel PatternDetailsViewModel { get; set; }
+        private int navStackCount { get; set; }
         public PatternDetails(string rank)
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
         }
         protected override void OnAppearing()
         {
+            navStackCount = Navigation.NavigationStack.Count();
             MessagingCenter.Subscribe<PatternDetailsViewModel, string>(this, "NewLine", (sender, rank) =>
             {
                 //navigate to pattern line page
@@ -42,6 +44,8 @@ namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
             MessagingCenter.Unsubscribe<PatternDetailsViewModel, string>(this, "NewPattern");
             MessagingCenter.Unsubscribe<PatternDetailsViewModel, PatternLine>(this, "EditPattern");
             base.OnDisappearing();
+            if (Navigation.NavigationStack.Count() == navStackCount + 1)
+                Navigation.PopAsync();
         }
     }
 }
