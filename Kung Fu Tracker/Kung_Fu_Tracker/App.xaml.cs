@@ -15,11 +15,6 @@ namespace Kung_Fu_Tracker
     public partial class App : Application
     {
         public static bool LoggedIn = false;
-        private static Label labelScreen;
-        private static bool hasInternet;
-        private static Page currentPage;
-        private static Timer timer;
-        private static bool noInterShow;
         public static RestService restService;
 
         public static double DisplayScreenWidth;

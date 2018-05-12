@@ -22,6 +22,7 @@ namespace Kung_Fu_Tracker.Views.ViewModels
                 {
                     selectedItem = value;
                     MessagingCenter.Send(this, "Pattern", selectedItem);
+                    SelectedItem = null;
                 }
             }
         }
