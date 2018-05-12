@@ -25,13 +25,13 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" Text="Order:" FontSize="Small" VerticalTextAlignment="Center" Margin="{Binding TextMargin}"/>
-                <Stepper x:Name="orderStepper"  Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" Value="1" />
+                <Entry x:Name="orderEntry" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="4" Keyboard="Numeric" Text="{Binding Line.Order}" />
                 <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="1" Text="Feet:" FontSize="Small" VerticalTextAlignment="Center" Margin="{Binding TextMargin}"/>
-                <Entry x:Name="feetEntry" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" />
+                <Entry x:Name="feetEntry" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" Text="{Binding Line.Feet}"/>
                 <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="1" Text="Left Hand:" FontSize="Small" VerticalTextAlignment="Center" Margin="{Binding TextMargin}"/>
-                <Entry x:Name="leftHandEntry" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" />
+                <Entry x:Name="leftHandEntry" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="4" Text="{Binding Line.LeftHand}"/>
                 <Label Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="1" Text="Right Hand:" FontSize="Small" VerticalTextAlignment="Center" Margin="{Binding TextMargin}"/>
-                <Entry x:Name="rightHandEntry" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" />
+                <Entry x:Name="rightHandEntry" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="4" Text="{Binding Line.RightHand}"/>
             </Grid>
         </StackLayout>
     </ContentPage.Content>

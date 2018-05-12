@@ -30,6 +30,7 @@ namespace Kung_Fu_Tracker.Views.ViewModels
             SaveCommand = new Command(OnSaveCommand);
             CancelCommand = new Command(OnCancelCommand);
         }
+
         public void OnSaveCommand()
         {
             //need to make a call to the sql connection to modify/insert the line

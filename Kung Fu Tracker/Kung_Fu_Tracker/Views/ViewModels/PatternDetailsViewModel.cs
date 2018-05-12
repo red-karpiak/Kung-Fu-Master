@@ -19,13 +19,14 @@ namespace Kung_Fu_Tracker.Views.ViewModels
     {
 
         public string Rank { get; set; }
-        public List<PatternLine> patternLines;
-        public List<PatternLine> PatternLines
+        private List<PatternLine> patternLines;
+        private List<PatternLine> rankLines;
+        public List<PatternLine> RankLines
         {
-            get { return patternLines; }
+            get { return rankLines; }
             set
             {
-                patternLines = value;
+                rankLines = value;
                 OnPropertyChanged();
             }
         }
@@ -58,7 +59,11 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         {
             content = await App.restService.GetData();
             System.Diagnostics.Debug.WriteLine("\n\n\nContent:" + content + "\n\n\n");
-            PatternLines = JsonConvert.DeserializeObject<List<PatternLine>>(content);
+            patternLines = JsonConvert.DeserializeObject<List<PatternLine>>(content);
+            var lines =  from line in patternLines where line.Rank.Equals(Rank) select line;
+            System.Diagnostics.Debug.WriteLine("\n\n\n Type: " + lines.GetType() + "\n\n\n");
+            RankLines = lines.ToList();
+
         }
         private async void OnRefreshCommand()
         {

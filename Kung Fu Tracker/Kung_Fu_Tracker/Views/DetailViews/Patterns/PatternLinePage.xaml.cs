@@ -21,5 +21,25 @@ namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
             PatternLineViewModel = new PatternLineViewModel(line);
             this.BindingContext = PatternLineViewModel;
 		}
-	}
+        protected override void OnAppearing()
+        {
+           /* MessagingCenter.Subscribe<PatternDetailsViewModel, string>(this, "Save", (sender, rank) =>
+            {
+                //save pattern
+                Navigation.PopAsync();
+            });
+            MessagingCenter.Subscribe<PatternDetailsViewModel, PatternLine>(this, "Cancel", (sender, patternLine) =>
+            {
+                Navigation.PopAsync();
+                //cancel pattern changes
+            });*/
+            base.OnAppearing();
+        }
+        protected override void OnDisappearing()
+        {
+          //  MessagingCenter.Unsubscribe<PatternDetailsViewModel, string>(this, "Save");
+           // MessagingCenter.Unsubscribe<PatternDetailsViewModel, PatternLine>(this, "Cancel");
+            base.OnDisappearing();
+        }
+    }
 }
