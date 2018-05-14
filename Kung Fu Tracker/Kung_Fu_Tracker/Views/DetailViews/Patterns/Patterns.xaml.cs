@@ -29,6 +29,7 @@ namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
             {
                 string rank = selectedItem;
                 Navigation.PushAsync(new PatternDetails(rank));
+                lvPatterns.SelectedItem = null;
             });
             base.OnAppearing();
         }

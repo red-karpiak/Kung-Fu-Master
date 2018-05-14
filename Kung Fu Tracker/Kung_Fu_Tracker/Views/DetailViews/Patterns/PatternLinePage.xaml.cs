@@ -20,7 +20,6 @@ namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
 		{
 			InitializeComponent();
             PatternLineViewModel = new PatternLineViewModel(line);
-            NavigationPage.SetHasBackButton(this, false);
             this.BindingContext = PatternLineViewModel;
 		}
         protected override void OnAppearing()

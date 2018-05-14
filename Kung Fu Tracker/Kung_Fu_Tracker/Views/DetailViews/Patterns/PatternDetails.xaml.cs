@@ -16,15 +16,16 @@ namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
     public partial class PatternDetails : ContentPage
     {
         public PatternDetailsViewModel PatternDetailsViewModel { get; set; }
+        private bool pageNavigated = false;
         public PatternDetails(string rank)
         {
             InitializeComponent();
             PatternDetailsViewModel = new PatternDetailsViewModel(rank);
-            NavigationPage.SetHasBackButton(this, false);
             this.BindingContext = PatternDetailsViewModel;
         }
         protected override void OnAppearing()
         {
+            pageNavigated = false;
             MessagingCenter.Subscribe<PatternDetailsViewModel, string>(this, "NewLine", (sender, rank) =>
             {
                 //navigate to pattern line page
@@ -34,7 +35,9 @@ namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
             MessagingCenter.Subscribe<PatternDetailsViewModel, PatternLine>(this, "EditLine", (sender, patternLine) =>
             {
                 //navigate to pattern line page to edit
-                Navigation.PushAsync(new PatternLinePage(patternLine));
+                if (!pageNavigated)
+                    Navigation.PushAsync(new PatternLinePage(patternLine));
+                pageNavigated = true;
             });
             base.OnAppearing();
         }
