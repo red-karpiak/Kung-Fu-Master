@@ -14,6 +14,7 @@ namespace ControllerLibrary
 {
 public class patternlines 
  { 
+ public int? ID { get; set;} 
  public string Rank { get; set;} 
  public int? Order { get; set;} 
  public string Feet { get; set;} 

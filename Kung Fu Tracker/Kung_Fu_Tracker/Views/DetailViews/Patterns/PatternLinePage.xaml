@@ -4,14 +4,13 @@
              x:Class="Kung_Fu_Tracker.Views.DetailViews.Patterns.PatternLinePage"
              Title="{Binding Rank}">
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="Save" Text="Save" Command="SaveCommand" Order="Secondary"/>
-        <ToolbarItem x:Name="Cancel" Text="Cancel" Command="CancelCommand" Order="Secondary" />
+        <ToolbarItem x:Name="Save" Text="Save" Command="{Binding SaveCommand}" Order="Secondary"/>
+        <ToolbarItem x:Name="Cancel" Text="Cancel" Command="{Binding CancelCommand}" Order="Secondary" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout x:Name="StackLayout" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>

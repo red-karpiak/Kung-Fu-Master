@@ -16,10 +16,13 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         public ICommand CancelCommand { get; set; }
         public PatternLine Line { get; set; }
         public string Rank { get; set; }
+        bool isNewLine { get; set; }
         
         public PatternLineViewModel(PatternLine patternLine)
         {
             Rank = patternLine.Rank;
+            if (patternLine.Order == 0)
+                isNewLine = true;
             Line = patternLine;
             Init();
         }
@@ -34,11 +37,27 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         public void OnSaveCommand()
         {
             //need to make a call to the sql connection to modify/insert the line
-            
+            if (Line.Order < 1)
+                MessagingCenter.Send(this, "Error", "Order cannot be less than 1");
+            else if (string.IsNullOrEmpty(Line.Feet))
+                MessagingCenter.Send(this, "Error", "You must supply a value for Feet");
+            else if (string.IsNullOrEmpty(Line.LeftHand))
+                MessagingCenter.Send(this, "Error", "You must supply a value for Left Hand");
+            else if (string.IsNullOrEmpty(Line.RightHand))
+                MessagingCenter.Send(this, "Error", "You must supply a value for Right Hand");
+            else
+            {
+                SaveLine();
+                MessagingCenter.Send(this, "Save", Line);
+            }
         }
         public void OnCancelCommand()
         {
-            //don't save
+            MessagingCenter.Send(this, "Cancel");
+        }
+        private async void SaveLine()
+        {
+            await App.restService.SavePatternLine(Line, isNewLine);
         }
     }
 }

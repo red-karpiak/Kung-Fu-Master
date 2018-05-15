@@ -24,30 +24,30 @@ namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
 		}
         protected override void OnAppearing()
         {
-
-            count = Navigation.NavigationStack.Count();
-            /* MessagingCenter.Subscribe<PatternDetailsViewModel, string>(this, "Save", (sender, rank) =>
-             {
-                 //save pattern
-                 softwareBackButtonPressed = false;
-                 Navigation.PopAsync();
-
-             });
-             MessagingCenter.Subscribe<PatternDetailsViewModel, PatternLine>(this, "Cancel", (sender, patternLine) =>
-             {
-             softwareBackButtonPressed = false;
-                 Navigation.PopAsync();
-                 //cancel pattern changes
-             });*/
+            MessagingCenter.Subscribe<PatternLineViewModel, PatternLine>(this, "Save", (sender, patternLine) =>
+            {
+                Navigation.PopAsync();
+            });
+            MessagingCenter.Subscribe<PatternLineViewModel>(this, "Cancel", (sender) =>
+            {
+                Navigation.PopAsync();
+            });
+            MessagingCenter.Subscribe<PatternLineViewModel, string>(this, "Error", (sender, message) =>
+            {
+                ErrorMessage(message);
+            });
             base.OnAppearing();
         }
         protected override void OnDisappearing()
         {
-            //  MessagingCenter.Unsubscribe<PatternDetailsViewModel, string>(this, "Save");
-            // MessagingCenter.Unsubscribe<PatternDetailsViewModel, PatternLine>(this, "Cancel");
-            
+            MessagingCenter.Unsubscribe<PatternLineViewModel, string>(this, "Save");
+            MessagingCenter.Unsubscribe<PatternLineViewModel, PatternLine>(this, "Cancel");
+            MessagingCenter.Unsubscribe<PatternLineViewModel, string>(this, "Error");
             base.OnDisappearing();
-           // Navigation.RemovePage(this);
+        }
+        private async void ErrorMessage(string message)
+        {
+            await DisplayAlert("Error", message, "Cancel");
         }
     }
 }

@@ -55,38 +55,42 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        //private async void InitGrid(string rank)
-        private void InitGrid(string rank)
+        private async void InitGrid(string rank)
+        //private void InitGrid(string rank)
         {
-            //content = await App.restService.GetData();
-            //System.Diagnostics.Debug.WriteLine("\n\n\nContent:" + content + "\n\n\n");
-            //patternLines = JsonConvert.DeserializeObject<List<PatternLine>>(content);
-            //var lines =  from line in patternLines where line.Rank.Equals(Rank) select line;
-            //System.Diagnostics.Debug.WriteLine("\n\n\n Type: " + lines.GetType() + "\n\n\n");
-            //RankLines = lines.ToList();
-            patternLines = new List<PatternLine>
-            {
-                new PatternLine("White", 1, "W, L Frt Stn", "W, Low Blk", "W, Chamber"),
-                new PatternLine("White", 2, "W, R Frt Stn", "W, Chamber", "W, Frt Punch"),
-                new PatternLine("White", 3, "W, L Frt Kick", "W, Chamber", "W, Palm-Chest"),
-                new PatternLine("Gold", 1, "W, L Frt Stn", "W, High Blk", "W, Chamber"),
-                new PatternLine("Gold", 2, "W, R Frt Stn", "W, Chamber", "W, Frt Punch"),
-                new PatternLine("Gold", 3, "W, R Frt Stn", "W, Low Punch", "W, Chamber")
-            };
+            content = await App.restService.GetData();
+            System.Diagnostics.Debug.WriteLine("\n\n\nContent:" + content + "\n\n\n");
+            patternLines = JsonConvert.DeserializeObject<List<PatternLine>>(content);
             var lines = from line in patternLines where line.Rank.Equals(Rank) select line;
+            System.Diagnostics.Debug.WriteLine("\n\n\n Type: " + lines.GetType() + "\n\n\n");
             RankLines = lines.ToList();
+
+            //only uncomment this when working without a connection to the database for testing
+            //patternLines = new List<PatternLine>
+            //{
+            //    new PatternLine("White", 1, "W, L Frt Stn", "W, Low Blk", "W, Chamber"),
+            //    new PatternLine("White", 2, "W, R Frt Stn", "W, Chamber", "W, Frt Punch"),
+            //    new PatternLine("White", 3, "W, L Frt Kick", "W, Chamber", "W, Palm-Chest"),
+            //    new PatternLine("Gold", 1, "W, L Frt Stn", "W, High Blk", "W, Chamber"),
+            //    new PatternLine("Gold", 2, "W, R Frt Stn", "W, Chamber", "W, Frt Punch"),
+            //    new PatternLine("Gold", 3, "W, R Frt Stn", "W, Low Punch", "W, Chamber")
+            //};
+            //var lines = from line in patternLines where line.Rank.Equals(Rank) select line;
+            //RankLines = lines.ToList();
         }
-        private async void OnRefreshCommand()
+        private void OnRefreshCommand()
         {
             IsRefreshing = true;
-            await Task.Delay(1000);
+            InitGrid(Rank);
             IsRefreshing = false;
         }
-        private void OnNewCommand() { }
+        private void OnNewCommand()
+        {
+            MessagingCenter.Send(this, "NewLine", Rank);
+        }
         private void OnCancelCommand() { }
         private void OnEditCommand()
         {
-            System.Diagnostics.Debug.WriteLine("\n\n\n" + SelectedItem.Feet + "\n\n\n");
             MessagingCenter.Send(this, "EditLine", SelectedItem);
         }
         private void OnDeleteCommand() { }

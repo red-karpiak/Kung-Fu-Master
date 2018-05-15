@@ -9,7 +9,7 @@ namespace Kung_Fu_Tracker.Models
     public class PatternLine
     {
         
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string Rank { get; set; }
         public int Order { get; set; }
         public string Feet { get; set; }
