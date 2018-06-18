@@ -25,7 +25,10 @@ namespace Kung_Fu_Tracker.Models
         //other colors: 726F72, E9D9D9, 666265
 
         //Login
-        public static string WebUrl = "http://192.168.0.6/Kung_Fu_Tracker.WebService/api/PatternLines";
+        //remedy: 10.188.154.142
+        //home: 192.168.0.97
+        public static string ipAddress = "192.168.0.97";
+        public static string WebUrl = string.Format("http://{0}/Kung_Fu_Tracker.WebService/api/PatternLines", ipAddress);
         public static string noInternetText = "No Internet connection available";
         public static string yesInternetText = "";
         public static string settingsTitleText = "Settings";

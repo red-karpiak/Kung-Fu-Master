@@ -100,19 +100,20 @@ public class patternlinesController:ApiController
 	}
 
 
-   public IEnumerable<patternlines> Get()
+   public IEnumerable<patternlines> Get( string Rank = null)
 	{
 	using(SqlConnection con = DbUtil.GetConnection()) {
 		SqlCommand com = new SqlCommand("API_patternlines_get",con);
 		com.CommandType = CommandType.StoredProcedure;
 		SqlParameter RetVal = com.Parameters.Add("RetVal", SqlDbType.Int);
 		RetVal.Direction = ParameterDirection.ReturnValue;
+	com.Parameters.Add("Rank", SqlDbType.VarChar, 100).Value = Rank;
 		SqlDataAdapter da = new SqlDataAdapter(com);
 		con.Open();
 		DataSet ds = new DataSet();
 		da.Fill(ds);
 		da.Dispose();
-	logger.Info("patternlines_get:, return={0}", RetVal.Value );
+	logger.Info("patternlines_get:@Rank={0}, , return={1}",Rank,  RetVal.Value );
 		DataTable dt = ds.Tables[0];
 		List<patternlines> ret = dt.ToListCollection<patternlines>();
 		return ret.AsEnumerable<patternlines>();
@@ -121,7 +122,7 @@ public class patternlinesController:ApiController
 	}
 
 
-   public patternlines Get( int? ID )
+   public patternlines Get( int? ID ,  string Rank = null)
 	{
 	using(SqlConnection con = DbUtil.GetConnection()) {
 		SqlCommand com = new SqlCommand("API_patternlines_get",con);
@@ -129,12 +130,13 @@ public class patternlinesController:ApiController
 		SqlParameter RetVal = com.Parameters.Add("RetVal", SqlDbType.Int);
 		RetVal.Direction = ParameterDirection.ReturnValue;
 	com.Parameters.Add("ID", SqlDbType.Int).Value = ID;
+	com.Parameters.Add("Rank", SqlDbType.VarChar, 100).Value = Rank;
 		SqlDataAdapter da = new SqlDataAdapter(com);
 		con.Open();
 		DataSet ds = new DataSet();
 		da.Fill(ds);
 		da.Dispose();
-	logger.Info("patternlines_get:@ID={0}, return={1}",ID,  RetVal.Value );
+	logger.Info("patternlines_get:@ID={0}, @Rank={1}, return={2}",ID,Rank,  RetVal.Value );
 		if ( ds.Tables.Count == 0)
 			throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest));
 		DataTable dt = ds.Tables[0];
@@ -159,11 +161,11 @@ public class patternlinesController:ApiController
 		com.CommandType = CommandType.StoredProcedure;
 		SqlParameter RetVal = com.Parameters.Add("RetVal", SqlDbType.Int);
 		RetVal.Direction = ParameterDirection.ReturnValue;
-	com.Parameters.Add("Rank", SqlDbType.VarChar, 255).Value = res.Rank;
+	com.Parameters.Add("Rank", SqlDbType.VarChar, 100).Value = res.Rank;
 	com.Parameters.Add("Order", SqlDbType.Int).Value = res.Order;
-	com.Parameters.Add("Feet", SqlDbType.VarChar, 255).Value = res.Feet;
-	com.Parameters.Add("LHand", SqlDbType.VarChar, 255).Value = LHand;
-	com.Parameters.Add("RHand", SqlDbType.VarChar, 255).Value = RHand;
+	com.Parameters.Add("Feet", SqlDbType.VarChar, -1).Value = res.Feet;
+	com.Parameters.Add("LHand", SqlDbType.VarChar, -1).Value = LHand;
+	com.Parameters.Add("RHand", SqlDbType.VarChar, -1).Value = RHand;
 	com.Parameters.Add("NewId", SqlDbType.Int).Value = NewId;
 	com.Parameters["NewId"].Direction = ParameterDirection.Output; 
 	try {
@@ -201,11 +203,11 @@ public class patternlinesController:ApiController
 		SqlParameter RetVal = com.Parameters.Add("RetVal", SqlDbType.Int);
 		RetVal.Direction = ParameterDirection.ReturnValue;
 	com.Parameters.Add("ID", SqlDbType.Int).Value = ID;
-	com.Parameters.Add("Rank", SqlDbType.VarChar, 255).Value = res.Rank;
+	com.Parameters.Add("Rank", SqlDbType.VarChar, 100).Value = res.Rank;
 	com.Parameters.Add("Order", SqlDbType.Int).Value = res.Order;
-	com.Parameters.Add("Feet", SqlDbType.VarChar, 255).Value = res.Feet;
-	com.Parameters.Add("LHand", SqlDbType.VarChar, 255).Value = LHand;
-	com.Parameters.Add("RHand", SqlDbType.VarChar, 255).Value = RHand;
+	com.Parameters.Add("Feet", SqlDbType.VarChar, -1).Value = res.Feet;
+	com.Parameters.Add("LHand", SqlDbType.VarChar, -1).Value = LHand;
+	com.Parameters.Add("RHand", SqlDbType.VarChar, -1).Value = RHand;
 	con.Open();
 	com.ExecuteNonQuery();
 	logger.Info("patternlines_put:@ID={0}, @Rank={1}, @Order={2}, @Feet={3}, @LHand={4}, @RHand={5}, return={6}",ID,res.Rank,res.Order,res.Feet,LHand,RHand,  RetVal.Value );

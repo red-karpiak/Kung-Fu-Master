@@ -58,12 +58,12 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         private async void InitGrid(string rank)
         //private void InitGrid(string rank)
         {
-            content = await App.restService.GetData();
+            content = await App.restService.GetData(rank);
             System.Diagnostics.Debug.WriteLine("\n\n\nContent:" + content + "\n\n\n");
             patternLines = JsonConvert.DeserializeObject<List<PatternLine>>(content);
-            var lines = from line in patternLines where line.Rank.Equals(Rank) select line;
-            System.Diagnostics.Debug.WriteLine("\n\n\n Type: " + lines.GetType() + "\n\n\n");
-            RankLines = lines.ToList();
+           // var lines = from line in patternLines where line.Rank.Equals(Rank) select line;
+           // System.Diagnostics.Debug.WriteLine("\n\n\n Type: " + lines.GetType() + "\n\n\n");
+            RankLines = patternLines;
 
             //only uncomment this when working without a connection to the database for testing
             //patternLines = new List<PatternLine>

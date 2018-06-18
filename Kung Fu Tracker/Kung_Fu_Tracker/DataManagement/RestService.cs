@@ -31,12 +31,14 @@ namespace Kung_Fu_Tracker.DataManagement
             client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", authenticationHeaderValue);
         }
 
-        public async Task<string> GetData()
+        public async Task<string> GetData(string rank = null)
         {
             PatternLines = new List<PatternLine>();
-
+            string uriString = Constants.WebUrl;
+            if (!string.IsNullOrEmpty(rank))
+                uriString += "/?Rank=" + rank;
             //rest url
-            var uri = new Uri(String.Format(Constants.WebUrl, string.Empty));
+            var uri = new Uri(String.Format(uriString, string.Empty));
             var content = "";
             try
             {
