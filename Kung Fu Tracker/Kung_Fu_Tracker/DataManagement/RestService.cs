@@ -61,7 +61,7 @@ namespace Kung_Fu_Tracker.DataManagement
 
         public async Task SavePatternLine(PatternLine line, bool isNewLine = false)
         {
-            var uri = new Uri(string.Format(Constants.WebUrl, string.Empty));
+            Uri uri;
 
             try
             {
@@ -71,10 +71,12 @@ namespace Kung_Fu_Tracker.DataManagement
                 HttpResponseMessage response = null;
                 if (isNewLine)
                 {
+                    uri = new Uri(string.Format(Constants.patternLinePostString, line.LeftHand, line.RightHand));
                     response = await client.PostAsync(uri, content);
                 }
                 else
                 {
+                    uri = new Uri(string.Format(Constants.patternLinePutString, line.ID, line.LeftHand, line.RightHand));
                     response = await client.PutAsync(uri, content);
                 }
 

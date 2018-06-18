@@ -26,6 +26,7 @@ namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
         {
             MessagingCenter.Subscribe<PatternLineViewModel, PatternLine>(this, "Save", (sender, patternLine) =>
             {
+                
                 Navigation.PopAsync();
             });
             MessagingCenter.Subscribe<PatternLineViewModel>(this, "Cancel", (sender) =>
