@@ -26,6 +26,7 @@ namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
         protected override void OnAppearing()
         {
             pageNavigated = false;
+            PatternDetailsViewModel.OnRefreshCommand();
             MessagingCenter.Subscribe<PatternDetailsViewModel, string>(this, "NewLine", (sender, rank) =>
             {
                 //navigate to pattern line page
