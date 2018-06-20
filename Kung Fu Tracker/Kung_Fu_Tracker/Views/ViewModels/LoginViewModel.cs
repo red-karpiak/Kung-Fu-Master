@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.ComponentModel;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 using Kung_Fu_Tracker.Views.Menu;
 using Kung_Fu_Tracker.Models;
 using Kung_Fu_Tracker.DataManagement;
@@ -61,6 +62,10 @@ namespace Kung_Fu_Tracker.Views.ViewModels
                 {
                     Application.Current.MainPage = new MasterDetail();
                 }
+                //else if (Device.RuntimePlatform == Device.iOS)
+                //{
+                //    Application.Current.MainPage = new MasterDetail();
+                //}
                 
             }
         }

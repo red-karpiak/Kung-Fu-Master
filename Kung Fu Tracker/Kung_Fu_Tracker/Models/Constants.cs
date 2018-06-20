@@ -34,5 +34,6 @@ namespace Kung_Fu_Tracker.Models
         public static string settingsTitleText = "Settings";
         public static string patternLinePostString = WebUrl + "/?LHand={0}&RHand={1}";
         public static string patternLinePutString = WebUrl + "/{0}?LHand={1}&RHand={2}";
+        public static string patternLineDeleteString = WebUrl + "/{0}";
     }
 }

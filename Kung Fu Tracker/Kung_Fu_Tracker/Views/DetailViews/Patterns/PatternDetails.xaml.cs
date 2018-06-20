@@ -42,13 +42,27 @@ namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
                     Navigation.PushAsync(new PatternLinePage(patternLine));
                 pageNavigated = true;
             });
+            MessagingCenter.Subscribe<PatternDetailsViewModel, int>(this, "DeleteLine", (sender, ID) =>
+            {
+                ShowDeleteDialog(ID);
+            });
             base.OnAppearing();
         }
         protected override void OnDisappearing()
         {
             MessagingCenter.Unsubscribe<PatternDetailsViewModel, string>(this, "NewLine");
             MessagingCenter.Unsubscribe<PatternDetailsViewModel, PatternLine>(this, "EditLine");
+            MessagingCenter.Unsubscribe<PatternDetailsViewModel, PatternLine>(this, "DeleteLine");
             base.OnDisappearing();
+        }
+        private async void ShowDeleteDialog(int id)
+        {
+            var answer = await DisplayAlert("Delete Pattern Line", "Are you sure you want to delete the line?", "Yes", "No");
+            if (answer)
+            {
+                await App.restService.DeletePatternLine(id);
+                PatternDetailsViewModel.OnRefreshCommand();
+            }
         }
     }
 }

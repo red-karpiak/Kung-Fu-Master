@@ -65,6 +65,7 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         }
         private async void InitGrid(string rank)
         {
+            //get the patternlines as a json string and add it to the datagrid.
             content = await App.restService.GetData(rank);
             patternLines = JsonConvert.DeserializeObject<List<PatternLine>>(content);
             RankLines = patternLines;
@@ -72,6 +73,7 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         }
         public void OnRefreshCommand()
         {
+            //show the spinner and get the datagrid data
             IsRefreshing = true;
             InitGrid(Rank);
         }
@@ -85,7 +87,11 @@ namespace Kung_Fu_Tracker.Views.ViewModels
             if (SelectedItem != null)
                 MessagingCenter.Send(this, "EditLine", SelectedItem);
         }
-        private void OnDeleteCommand() { }
+        private void OnDeleteCommand()
+        {
+            if (SelectedItem != null)
+                MessagingCenter.Send(this, "DeleteLine", SelectedItem.ID);
+        }
 
     }
 }

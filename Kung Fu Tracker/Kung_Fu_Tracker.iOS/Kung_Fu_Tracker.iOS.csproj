@@ -156,6 +156,12 @@
     </Reference>
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kung_Fu_Tracker\Kung_Fu_Tracker.csproj">
+      <Project>{0c790cc0-0d57-42a7-8f8d-59f6966059b1}</Project>
+      <Name>Kung_Fu_Tracker</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

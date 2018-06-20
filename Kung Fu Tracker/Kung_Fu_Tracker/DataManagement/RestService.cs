@@ -82,19 +82,34 @@ namespace Kung_Fu_Tracker.DataManagement
 
                 if (response.IsSuccessStatusCode)
                 {
-                    Debug.WriteLine(@"				TodoItem successfully saved.");
+                    Debug.WriteLine("Pattern Line successfully saved.");
                 }
 
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(@"				ERROR {0}", ex.Message);
+                Debug.WriteLine("ERROR {0}", ex.Message);
             }
         }
 
-        public Task DeletePatternLine(int id)
+        public async Task DeletePatternLine(int id)
         {
-            throw new NotImplementedException();
+            var uri = new Uri(string.Format(Constants.patternLineDeleteString, id));
+
+            try
+            {
+                var response = await client.DeleteAsync(uri);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Debug.WriteLine("Pattern Line successfully deleted.");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("ERROR {0}", ex.Message);
+            }
         }
     }
 }
