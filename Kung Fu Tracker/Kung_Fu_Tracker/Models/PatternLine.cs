@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace Kung_Fu_Tracker.Models
 {
+    /// <summary auth="J.Karpiak" date="26/07/26">
+    /// A single step entry in a complete pattern
+    /// 
+    /// Again, I would like to have a DataItem base class to inherit from.
+    /// </summary>
     public class PatternLine
     {
         

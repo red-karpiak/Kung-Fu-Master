@@ -13,6 +13,9 @@ using Xamarin.Forms;
 
 namespace Kung_Fu_Tracker.Views.ViewModels
 {
+    /// <summary>
+    /// Logic and functionality for the master page
+    /// </summary>
     public class MasterPageViewModel
     {
         public List<MasterMenuItem> Items { get; set; }

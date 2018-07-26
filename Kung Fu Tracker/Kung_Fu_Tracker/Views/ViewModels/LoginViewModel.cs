@@ -15,8 +15,6 @@ namespace Kung_Fu_Tracker.Views.ViewModels
 {
     public class LoginViewModel
     {
-        private string username;
-
         public string Username { get; set; }
         public string Password { get; set; }
         public ICommand SubmitCommand { get; set; }

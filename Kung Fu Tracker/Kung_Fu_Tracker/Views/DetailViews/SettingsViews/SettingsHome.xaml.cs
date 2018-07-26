@@ -11,6 +11,10 @@ using Xamarin.Forms.Xaml;
 
 namespace Kung_Fu_Tracker.Views.DetailViews.SettingsViews
 {
+    /// <summary auth="J.Karpiak" date="26/07/18">
+    /// I would like to redesign this completely, with the exception of setting the ModelView - ViewModel, i believe this
+    /// could use some work. a bit messy and cluttered
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SettingsHome : ContentPage
     {

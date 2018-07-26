@@ -8,6 +8,9 @@ using Xamarin.Forms;
 
 namespace Kung_Fu_Tracker.Views.ViewModels
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class UserInfoViewModel
     {
         public ICommand ButtonCommand { get; set; }
@@ -36,8 +39,6 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         private void Init()
         {
             Username = App.LoggedInUser.Username;
-            ScreenWidth = (int)App.DisplayScreenWidth;
-            ScreenHeight = (int)App.DisplayScreenHeight;
             IsActivityIndicatorVisible = false;
         }
     }

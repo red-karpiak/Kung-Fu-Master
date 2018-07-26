@@ -11,7 +11,10 @@ using Newtonsoft.Json;
 
 namespace Kung_Fu_Tracker.DataManagement
 {
-    public class RestService// : IRestService
+    /// <comment auth=J.Karpiak date="26/07/18">
+    /// 
+    /// </comment>
+    public class RestService
     {
         HttpClient client;
 

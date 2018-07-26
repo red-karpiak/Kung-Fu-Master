@@ -12,10 +12,12 @@ using Xamarin.Forms.Xaml;
 
 namespace Kung_Fu_Tracker.Views.Menu
 {
+    /// <summary>
+    /// The master page hold all the functionality of navigation to different pages up selection
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MasterPage : ContentPage
     {
-        //public ListView ListView { get { return lvContent; } }
         public MasterPageViewModel masterPageModel;
         public MasterPage()
         {
@@ -25,6 +27,7 @@ namespace Kung_Fu_Tracker.Views.Menu
         }
         protected override void OnAppearing()
         {
+            //navigate to the selected page
             MessagingCenter.Subscribe<MasterPageViewModel, MasterMenuItem>(this, "MasterDetail", (sender, selectedItem) =>
             {
                 var item = selectedItem as MasterMenuItem;

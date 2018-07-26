@@ -12,6 +12,9 @@ using Xamarin.Forms.Xaml;
 
 namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
 {
+    /// <summary>
+    /// The starting point for patterns. Select a pattern and go to the details.
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Patterns : ContentPage
     {

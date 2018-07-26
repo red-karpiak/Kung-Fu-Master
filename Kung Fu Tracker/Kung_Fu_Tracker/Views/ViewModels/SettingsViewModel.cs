@@ -70,10 +70,7 @@ namespace Kung_Fu_Tracker.Views.ViewModels
             }
 
             PasswordToggleView = false;
-
-            //AbsYTranslation = (int)(App.DisplayScreenHeight / 4);
-            Thickness = new Thickness(0, (int)(App.DisplayScreenHeight / 5), 0, 0);
-
+            
             //all commands to subscribe to
             PasswordChangeCommand = new Command(OnPasswordChange);
             CheckConnectionCommand = new Command(OnCheckConnection);

@@ -7,13 +7,7 @@
         <StackLayout x:Name="slMainLayout">
             <RelativeLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <StackLayout x:Name="MidStack" VerticalOptions="CenterAndExpand">
-                    <Grid>
-                        <Label Grid.Column="0" Grid.Row="0" Text="Height" FontSize="Medium"/>
-                        <Label Grid.Column="1" Grid.Row="0" Text="{Binding ScreenHeight}" FontSize="Medium"/>
-                        <Label Grid.Column="0" Grid.Row="1" Text="Width" FontSize="Medium"/>
-                        <Label Grid.Column="1" Grid.Row="1" Text="{Binding ScreenWidth}" FontSize="Medium"/>
-                        <Button Grid.Column="0" Grid.Row="2" Grid.RowSpan="3" Command="{Binding ButtonCommand}"/>
-                    </Grid>
+                    <Button Grid.Column="0" Grid.Row="2" Grid.RowSpan="3" Command="{Binding ButtonCommand}"/>
                 </StackLayout>
                 <ActivityIndicator IsRunning="{Binding IsActivityIndicatorRunning}" Color="Black" x:Name="elActivitySpinner" IsVisible="{Binding IsActivityIndicatorVisible}"
                                    IsEnabled="{Binding IsActivityIndicatorEnabled}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"

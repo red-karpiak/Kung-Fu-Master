@@ -7,6 +7,9 @@ using Xamarin.Forms;
 
 namespace Kung_Fu_Tracker.Models
 {
+    /// <summary auth="J.Karpiak" date="26/07/18">
+    /// List of common constants like UI design, urls, and stored procedure calls
+    /// </summary>
     public class Constants
     {
         public static bool IsDev = true;
@@ -24,14 +27,13 @@ namespace Kung_Fu_Tracker.Models
 
         //other colors: 726F72, E9D9D9, 666265
 
-        //Login
-        //remedy: 10.188.154.142
-        //home: 192.168.0.97
+        //Login information
         public static string ipAddress = "192.168.0.97";
         public static string WebUrl = string.Format("http://{0}/Kung_Fu_Tracker.WebService/api/PatternLines", ipAddress);
-        public static string noInternetText = "No Internet connection available";
-        public static string yesInternetText = "";
+        
         public static string settingsTitleText = "Settings";
+
+        //API calls to stored procedures in the SQL database
         public static string patternLinePostString = WebUrl + "/?LHand={0}&RHand={1}";
         public static string patternLinePutString = WebUrl + "/{0}?LHand={1}&RHand={2}";
         public static string patternLineDeleteString = WebUrl + "/{0}";

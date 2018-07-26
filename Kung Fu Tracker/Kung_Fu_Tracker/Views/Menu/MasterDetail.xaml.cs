@@ -14,19 +14,9 @@ namespace Kung_Fu_Tracker.Views.Menu
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MasterDetail : MasterDetailPage
     {
-        public MasterDetailModel masterDetailModel;
         public MasterDetail()
         {
             InitializeComponent();
-            //we may decide to use this model later, but for now just leave it commented.
-            //this.BindingContext = masterDetailModel;
-        }
-
-        protected override bool OnBackButtonPressed()
-        {
-            System.Diagnostics.Debug.WriteLine("Back Button Pressed");
-           // return true;
-            return base.OnBackButtonPressed();
         }
     }
 }

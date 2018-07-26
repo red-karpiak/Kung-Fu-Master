@@ -11,11 +11,13 @@ using Xamarin.Forms.Xaml;
 
 namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
 {
+    /// <summary auth="J.Karpiak" date="26/07/18">
+    /// this page shows the detail of an individual line. The fields will be empty if it is a new line.
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PatternLinePage : ContentPage
 	{
         public PatternLineViewModel PatternLineViewModel { get; set; }
-        int count = 0;
         public PatternLinePage (PatternLine line)
 		{
 			InitializeComponent();
@@ -24,11 +26,7 @@ namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
 		}
         protected override void OnAppearing()
         {
-            MessagingCenter.Subscribe<PatternLineViewModel, PatternLine>(this, "Save", (sender, patternLine) =>
-            {
-                Navigation.PopAsync();
-            });
-            MessagingCenter.Subscribe<PatternLineViewModel>(this, "Cancel", (sender) =>
+            MessagingCenter.Subscribe<PatternLineViewModel>(this, "Close", (sender) =>
             {
                 Navigation.PopAsync();
             });

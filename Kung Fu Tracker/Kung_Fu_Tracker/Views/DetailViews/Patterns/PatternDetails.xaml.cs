@@ -12,6 +12,10 @@ using Xamarin.Forms.Xaml;
 
 namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
 {
+    /// <summary auth="J.Karpiak" date="26/07/18">
+    /// this page contains a datagrid of all the entries in in the database for that specific line. As well as a the ability to add, edit
+    /// and delete lines.
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PatternDetails : ContentPage
     {
@@ -25,6 +29,7 @@ namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
         }
         protected override void OnAppearing()
         {
+            //the "pageNavigated flag" is necessary to stop the multiple stacking of pages.
             pageNavigated = false;
             PatternDetailsViewModel.OnRefreshCommand();
             MessagingCenter.Subscribe<PatternDetailsViewModel, string>(this, "NewLine", (sender, rank) =>

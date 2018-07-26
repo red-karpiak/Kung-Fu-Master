@@ -39,7 +39,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\HelperFunctions.cs" />
-    <Compile Include="DataManagement\IDatabaseFetcher.cs" />
     <Compile Include="DataManagement\IRestService.cs" />
     <Compile Include="DataManagement\RestService.cs" />
     <Compile Include="Interfaces\IDeviceHelper.cs" />
@@ -51,7 +50,6 @@
     <Compile Include="Views\ViewModels\MasterDetailModel.cs" />
     <Compile Include="Views\ViewModels\MasterPageViewModel.cs" />
     <Compile Include="Models\Pattern.cs" />
-    <Compile Include="Interfaces\ISQLite.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

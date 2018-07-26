@@ -15,6 +15,10 @@ using Xamarin.Forms;
 
 namespace Kung_Fu_Tracker.Views.ViewModels
 {
+    /// <summary auth="J.Karpiak" date="26/07/18">
+    /// The view model for the page with the datagrid.
+    /// I would like to have a Base view model class to reduce code redundancies
+    /// </summary>
     public class PatternDetailsViewModel : INotifyPropertyChanged
     {
 
@@ -47,7 +51,7 @@ namespace Kung_Fu_Tracker.Views.ViewModels
             }
         }
         
-        public string content { get; set; }
+        public string Content { get; set; }
         
         public PatternDetailsViewModel(string rank)
         {
@@ -65,9 +69,9 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         }
         private async void InitGrid(string rank)
         {
-            //get the patternlines as a json string and add it to the datagrid.
-            content = await App.restService.GetData(rank);
-            patternLines = JsonConvert.DeserializeObject<List<PatternLine>>(content);
+            //get the patternlines from database as a json string and add it to the datagrid.
+            Content = await App.restService.GetData(rank);
+            patternLines = JsonConvert.DeserializeObject<List<PatternLine>>(Content);
             RankLines = patternLines;
             IsRefreshing = false;
         }
@@ -77,16 +81,21 @@ namespace Kung_Fu_Tracker.Views.ViewModels
             IsRefreshing = true;
             InitGrid(Rank);
         }
+        //create a new line
         private void OnNewCommand()
         {
             MessagingCenter.Send(this, "NewLine", Rank);
         }
         private void OnCancelCommand() { }
+
+        //edit the currently selected line
         private void OnEditCommand()
         {
             if (SelectedItem != null)
                 MessagingCenter.Send(this, "EditLine", SelectedItem);
         }
+
+        //delete the selected line
         private void OnDeleteCommand()
         {
             if (SelectedItem != null)

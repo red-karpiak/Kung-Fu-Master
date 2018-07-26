@@ -5,6 +5,10 @@ using Xamarin.Forms.Xaml;
 
 namespace Kung_Fu_Tracker.Views.DetailViews.UserData
 {
+    /// <summary auth="J.Karpiak" date="26/07/18">
+    /// just the opening page. just displays the user name. I want to add more details in the future. For Example:
+    /// progress data, alerts, goals, etc.
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserInfo : ContentPage
     {

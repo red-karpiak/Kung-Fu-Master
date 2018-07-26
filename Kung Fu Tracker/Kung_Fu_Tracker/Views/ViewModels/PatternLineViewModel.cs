@@ -9,6 +9,9 @@ using Xamarin.Forms;
 
 namespace Kung_Fu_Tracker.Views.ViewModels
 {
+    /// <summary auth="J.Karpiak" date="26/07/18">
+    /// The business logic for the Pattern Line page. Saving new or modified pattern lines
+    /// </summary>
     public class PatternLineViewModel
     {
         public Thickness TextMargin { get; set; }
@@ -48,12 +51,12 @@ namespace Kung_Fu_Tracker.Views.ViewModels
             else
             {
                 SaveLine();
-                MessagingCenter.Send(this, "Save", Line);
+                MessagingCenter.Send(this, "Close");
             }
         }
         public void OnCancelCommand()
         {
-            MessagingCenter.Send(this, "Cancel");
+            MessagingCenter.Send(this, "Close");
         }
         private async void SaveLine()
         {

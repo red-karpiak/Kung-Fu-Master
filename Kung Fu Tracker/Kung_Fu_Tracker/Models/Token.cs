@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Kung_Fu_Tracker.Models
 {
+    /// <summary auth="J.Karpiak" date="26/07/18">
+    /// A Token class necessary for handling user logins and time outs.
+    /// </summary>
     public class Token
     {
         public int Id { get; set; }
