@@ -57,7 +57,7 @@ namespace Kung_Fu_Tracker.Views.DetailViews.Patterns
         }
         private async void ShowDeleteDialog(int id)
         {
-            var answer = await DisplayAlert("Delete Pattern Line", "Are you sure you want to delete the line?", "Yes", "No");
+            var answer = await DisplayAlert("Delete", "Are you sure you want to delete this line?", "Yes", "No");
             if (answer)
             {
                 await App.restService.DeletePatternLine(id);

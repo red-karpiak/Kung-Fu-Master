@@ -28,8 +28,6 @@ namespace Kung_Fu_Tracker.Views.ViewModels
         {
             if (string.IsNullOrEmpty(Username))
             {
-                //because the functionality of the ContentPage class is not available in the ViewModel, we have to use
-                //a MessagingCenter, a utility that handles messages between classes
                 MessagingCenter.Send(this, "InvalidUsername", Username);
                 return;
             }

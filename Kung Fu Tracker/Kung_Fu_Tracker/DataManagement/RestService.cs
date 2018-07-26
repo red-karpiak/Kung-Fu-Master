@@ -84,7 +84,6 @@ namespace Kung_Fu_Tracker.DataManagement
                 {
                     Debug.WriteLine("Pattern Line successfully saved.");
                 }
-
             }
             catch (Exception ex)
             {
